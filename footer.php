@@ -51,27 +51,13 @@
 
 <div class="right">
 <p>
-<a href="http://www.facebook.com/csoresearch"><svg class="icon-facebook"><use xlink:href="img/social.svg#icon-facebook"></use></svg></a>
-<a href="https://www.linkedin.com/groups?gid=2939520"><svg class="icon-linkedin"><use xlink:href="img/social.svg#icon-linkedin"></use></svg></a>
-<a href="http://www.twitter.com/csoresearch"><svg class="icon-twitter"><use xlink:href="img/social.svg#icon-twitter"></use></svg></a>
-<a href="http://www.pinterest.com/csoresearch/following"><svg class="icon-pinterest"><use xlink:href="img/social.svg#icon-pinterest"></use></svg></a>
-<a href="http://www.instagram.com/csoresearch"><svg class="icon-instagram"><use xlink:href="img/social.svg#icon-instagram"></use></svg></a>
-<a href="http://www.youtube.com/csoresearch"><svg class="icon-youtube"><use xlink:href="img/social.svg#icon-youtube"></use></svg></a>
+<a href="http://www.facebook.com/csoresearch"><?php get_template_part('img/social/inline', 'facebook.svg'); ?></a>
+<a href="https://www.linkedin.com/groups?gid=2939520"><?php get_template_part('img/social/inline', 'linkedin.svg'); ?></a>
+<a href="http://www.twitter.com/csoresearch"><?php get_template_part('img/social/inline', 'twitter.svg'); ?></a>
+<a href="http://www.pinterest.com/csoresearch/following"><?php get_template_part('img/social/inline', 'pinterest.svg'); ?></a>
+<a href="http://www.instagram.com/csoresearch"><?php get_template_part('img/social/inline', 'instagram.svg'); ?></a>
+<a href="http://www.youtube.com/csoresearch"><?php get_template_part('img/social/inline', 'youtube.svg'); ?></a>
 </p>
-
-<div class="search">
-
-<form id="searchform" class="searchform" action="http://campuscareercoach.com/" method="get" role="search">
-
-    <div>
-        <label class="screen-reader-text" for="s"></label>
-        <input id="s" type="text" name="s" value=""></input>
-        <input id="searchsubmit" type="submit" value="Search"></input>
-    </div>
-
-</form>
-
-</div>
 
 </div>
 
@@ -89,6 +75,8 @@
 </div><!--/#footer-->
 
         <script>window.jQuery || document.write('<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+         <script src="<?php echo get_template_directory_uri(); ?>/js/main.js" type="text/javascript"></script>
+        <script src="<?php echo get_template_directory_uri(); ?>/js/plugins.js" type="text/javascript"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

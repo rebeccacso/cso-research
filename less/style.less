@@ -174,7 +174,7 @@ button {
 input[type="submit"] {
 	.button-blue;
 	.roboto;
-	padding-bottom: 2.2px;
+	padding-bottom: .14em;
 	
 }
 
@@ -184,11 +184,10 @@ input[type="submit"] {
 	.button-orange;
 				
 }
-
 	
 // Logo
 
-.cso-circle {
+circle {
 	fill: @cso-blue;
 }
 
@@ -270,6 +269,10 @@ input[type="submit"] {
 			position:relative;
 			.btn-ease;
 			
+			&.demo {
+				padding-bottom: 0.1em;
+			}
+			
 			&:hover > ul {
 				visibility:visible;
 				opacity:1;
@@ -279,8 +282,7 @@ input[type="submit"] {
 			li {
 				display:block;
 				white-space:nowrap;
-				padding:.3em .5em;
-				
+				padding:.3em .5em;				
 				
 				&:hover {
 					background-color:@cso-ltblue;
@@ -293,6 +295,8 @@ input[type="submit"] {
 			&:nth-last-child(2) {
 				padding-right:0.813em;
 			}
+			
+			
 			
 		}
 		
@@ -309,7 +313,7 @@ input[type="submit"] {
 			padding-right:.3em;
 		}
 		
-		[class^="icon-"] {
+		svg{
 			height: 1.6em;
 			width: 1.6em;
 			display: inline-block;
@@ -338,6 +342,21 @@ input[type="submit"] {
 	.search {
 		margin-top: calc(~"8.2em / 2");
 		
+		
+		input[type=submit] {
+			background-image:url(img/icons/search.svg);
+			background-repeat:no-repeat;
+			color:transparent;
+			background-color:transparent;
+			padding: 0px;
+			height: 2em;
+			width: 2em;
+			
+			&:hover {
+				background-image:url(img/icons/search-blue.svg);
+			}
+		}
+		
 		@media @breakpoint-1 {
 			display:none;
 			position: absolute;
@@ -345,6 +364,19 @@ input[type="submit"] {
 			top: 2em;
 			background-color:@cso-ltblue;
 			padding:.5em;
+			
+			input[type=submit] {
+				.button-blue;
+				.roboto;
+				padding-bottom: .14em;
+				background-image:none;
+				width:auto;
+				height:auto;
+				
+				&:hover {
+					background-image:none;
+				}
+			}
 		}
 		
 		@media @breakpoint-3 {
@@ -394,9 +426,9 @@ input[type="submit"] {
 		
 	}
 		
-	.icon-magnifying-glass, .icon-list {
-		height:1.875em;
-		width:1.875em;
+	.search-icon svg, .nav-icon svg {
+		height:2em;
+		width:2em;
 		fill: @grey;
 		
 		@media @breakpoint-3 {
@@ -554,7 +586,7 @@ input[type="submit"] {
 
 		}
 		
-		[class^="icon-"], [class*=" icon-"] {
+		svg {
 			height:1.5em;
 			width:1.5em;
 			fill: darken(@cso-ltblue, 10%);
@@ -562,7 +594,7 @@ input[type="submit"] {
 		
 		}
 		
-		a:hover [class^="icon-"], a:hover [class*=" icon-"] {
+		a:hover svg {
 				fill: darken(@grey, 20%);
 		}
 		
@@ -1400,7 +1432,7 @@ input[type="submit"] {
 			}
 		}
 		
-		[class^="icon-"] {
+		svg {
 			height: 1.6em;
 			width: 1.6em;
 			display: inline-block;
@@ -1413,20 +1445,5 @@ input[type="submit"] {
 			}
 		}
 		
-		.search {
-			float: right;
-			clear: right;
-			
-			input#s {
-				width:8em;
-			}
-		
-			@media @breakpoint-5 {
-				display:none;
-			
-			}
-		
-		
-		}
 	}
 }

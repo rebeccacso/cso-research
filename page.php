@@ -2,9 +2,10 @@
 
 <!--CONTENT-->
 <div id="content">
+ <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <div id="title-bar">
 <div class="img-gradient"></div>
-<h1>The CSO System</h1>
+<h1><?php the_title(); ?></h1>
 <h2>> Co-op/Intern</h2>
 </div>
 <div class="breadcrumbs">
@@ -19,11 +20,7 @@
 
 
 <div class="main">
-<h2>Powerful solutions. Unparalleled client support.</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreetmauris leo, a interdum urna euismod sed. Etiam venenatis nec leo ut tincidunt. Nunc adipiscing ornare leo, eget dictum mauris mollis a. Nullam est quam, eleifend quis blandit in, lacinia in sem. Aliquam ultricies fringilla consectetur. Nunc laoreet neque dolor, non faucibus augue dignissim a. Mauris eu lobortis felis.</p>
-
-<h3>Subheader</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreetmauris leo, a interdum urna euismod sed. Etiam venenatis nec leo ut tincidunt. Nunc adipiscing ornare leo, eget dictum mauris mollis a. Nullam est quam, eleifend quis blandit in, lacinia in sem. Aliquam ultricies fringilla consectetur. Nunc laoreet neque dolor, non faucibus augue dignissim a. Mauris eu lobortis felis.</p>
+<?php the_content(); ?>
 </div>
 
 <div class="sidebar-icon bottom"><a href="#header">
@@ -54,7 +51,9 @@ widgets can go here</div>
 
 
 </aside>
-
+    <?php endwhile; else: ?>
+    <p><?php _e( 'Sorry, this page is not currently available.' ); ?></p>
+    <?php endif; ?>
 
 </div><!--/#content-->
 
