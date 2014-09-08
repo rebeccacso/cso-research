@@ -7,14 +7,14 @@
 <head>
         <meta http-equiv="content-type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>">
         <title><?php wp_title( '/' ); ?></title>
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>">
-		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2.min.js"></script>
         <script src="<?php echo get_template_directory_uri(); ?>/js/main.js" type="text/javascript"></script>
+        <script src="<?php echo get_template_directory_uri(); ?>/js/plugins.js" type="text/javascript"></script>
         <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:300' rel='stylesheet' type='text/css'>
         
         <?php wp_head(); ?>
