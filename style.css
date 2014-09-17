@@ -735,28 +735,42 @@ circle {
 .page-template-page-client-services-php #title {
   width: 25em;
   float: left;
-  margin-top: -0.6em;
   margin-bottom: 2em;
 }
 .page-template-page-client-services-php #title h2 {
   display: inline;
-  color: #2b85c4;
+  color: #333333;
+  line-height: 1.1em;
 }
 .page-template-page-client-services-php #title svg {
   width: 6em;
   height: 6em;
   fill: #ffffff;
-  background-color: #2b85c4;
   border-radius: .3em;
   float: left;
   padding: .5em;
   margin-right: 1em;
-  margin-top: .8em;
 }
 @media screen and (max-width: 50em) {
   .page-template-page-client-services-php #title svg {
-    margin-top: 0;
+    margin-top: -0.6em;
   }
+}
+.page-template-page-client-services-php.page-id-91 #title svg,
+.page-template-page-client-services-php.parent-pageid-91 #title svg {
+  background-color: #2b85c4;
+}
+.page-template-page-client-services-php.page-id-93 #title svg,
+.page-template-page-client-services-php.parent-pageid-93 #title svg {
+  background-color: #f7931e;
+}
+.page-template-page-client-services-php.page-id-105 #title svg,
+.page-template-page-client-services-php.parent-pageid-105 #title svg {
+  background-color: #c1272d;
+}
+.page-template-page-client-services-php.page-id-107 #title svg,
+.page-template-page-client-services-php.parent-pageid-107 #title svg {
+  background-color: #83bc3c;
 }
 .page-template-page-client-services-php .info {
   float: right;

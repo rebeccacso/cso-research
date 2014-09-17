@@ -59,8 +59,7 @@ yoast_breadcrumb('<p>','</p>');
 	$cso_client_svcs = array(
 		'theme_location' => 'client-svcs',
 		'container' => 'nav',
-		'depth' => 2,
-		'walker' => new description_walker() //use our custom walker
+		'depth' => 2
 	);
 ?>
 
