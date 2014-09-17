@@ -29,52 +29,20 @@
 <div id="header">
 
         
-        <div class="logo"><?php get_template_part('img/inline', 'logo.svg'); ?></div>
-
-<nav>
-<ul>
-<li><a href="#">Company</a>
-	<ul>
-  		<li><a href="#">Team</a></li>
-        <li><a href="#">Clients</a></li>
-        <li><a href="#">Testimonials</a></li>
-        <li><a href="#">Partners</a></li>
-  </ul>
-</li>
-<li><a href="#">Products</a>
-    <ul>
-            <li><a href="#">The CSO System</a></li>
-            <li><a href="#">CSO Law</a></li>
-            <li><a href="#">The Outcomes Survey</a></li>
-            <li><a href="#">CSO Connect</a></li>
-            <li><a href="#">The Campus Career Coach</a></li>
-      </ul></li>
-<li><a href="#">Services</a>
-	<ul>
-            <li><a href="#">for Career Offices</a></li>
-            <li><a href="#">for Institutional Researchers</a></li>
-            <li><a href="#">for Employers</a></li>
-            <li><a href="#">for Students</a></li>
-      </ul></li>
-<li><a href="#">News & Events</a>
-<ul>
-  		<li><a href="#">Press</a></li>
-        <li><a href="#">CSO eNews</a></li>
-        <li><a href="#">CSO Conference</a></li>
-  </ul>
-</li>
-<li><a href="#">Contact</a>
-		<ul>
-  		<li><a href="#">Request a Demo</a></li>
-        <li><a href="#">CSO System Support</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-  </ul>
+        <div class="logo"><a href="<?php echo home_url(); ?>"><?php get_template_part('img/inline', 'logo.svg'); ?></a></div>
 
 
-</li>
-<li class="demo"><a href="/demo">Request a Demo</a></li>
-</ul></nav>
+<?php
+	$cso_header_nav = array(
+		'theme_location' => 'header-nav',
+		'container' => 'nav',
+		'depth' => 2
+	);
+?>
+
+<?php wp_nav_menu( $cso_header_nav ); ?>
+
+
 
 
 <div class="contact">

@@ -5,14 +5,20 @@
 <file name="client-services.html" server="50.116.52.217//" local="130544300820266263" remote="130546761640000000" />
 <file name="crossdomain.xml" server="50.116.52.217//" local="130522474704508027" remote="130546761640000000" />
 <file name="favicon.ico" server="50.116.52.217//" local="130522474704678052" remote="130546761660000000" />
-<file name="funtions.php" server="50.116.52.217//" local="130546740422823515" remote="130546761660000000" />
-<file name="header.php" server="50.116.52.217//" local="130546848598360243" remote="130546848700000000" />
-<file name="home.html" server="50.116.52.217//" local="130544167578744365" remote="130546761670000000" />
+<file name="header.php" server="50.116.52.217//" local="130552852009967644" remote="130552852030000000" />
+<file name="home.html" server="50.116.52.217//" local="130544167578744365" remote="130548540720000000" />
 <file name="index.html" server="50.116.52.217//" local="130544297287293451" remote="130546853090000000" />
 <file name="LICENSE.md" server="50.116.52.217//" local="130522474704067977" remote="130546761790000000" />
-<file name="style.css" server="50.116.52.217//" local="130546858457801518" remote="130546858370000000" />
+<file name="style.css" server="50.116.52.217//" local="130553816776032345" remote="130553816840000000" />
 <file name="tagline.svg" server="50.116.52.217//" local="130541574378663516" remote="130546761800000000" />
 <file name="index.php" server="50.116.52.217//" local="130546855733888672" remote="130546855710000000" />
-<file name="footer.php" server="50.116.52.217//" local="130546857143746048" remote="130546857420000000" />
-<file name="page.php" server="50.116.52.217//" local="130546862172729392" remote="130546862100000000" />
+<file name="footer.php" server="50.116.52.217//" local="130548529041736638" remote="130548528940000000" />
+<file name="page.php" server="50.116.52.217//" local="130548593105344064" remote="130548593050000000" />
+<file name="sidebar-page-content.php" server="50.116.52.217//" local="130548542872068900" remote="130548542760000000" />
+<file name="sidebar-page-nav-2.php" server="50.116.52.217//" local="130547697741513422" remote="130547698070000000" />
+<file name="functions.php" server="50.116.52.217//" local="130553854365080452" remote="130553854350000000" />
+<file name="front-page.php" server="50.116.52.217//" local="130550359669338432" remote="130550359760000000" />
+<file name="page-client-services.php" server="50.116.52.217//" local="130553852088250896" remote="130553852090000000" />
+<file name="content-quick-support.php" server="50.116.52.217//" local="130553805640497072" remote="130553805720000000" />
+<file name="sidebar-client-svcs-info.php" server="50.116.52.217//" local="130553783339891869" remote="130553783640000000" />
 </dwsync>

@@ -1,3 +1,10 @@
+<?php
+/*
+Template Name: Client Services Template
+*/
+?>
+
+
 <?php get_header(); ?>
 
 <!--CONTENT-->
@@ -10,14 +17,7 @@
 
 <div class="img-gradient"></div>
 
-<?php if ( is_page() && $post->post_parent > 0 ) { 
-    echo "<h1>" . get_the_title($post->post_parent) . "</h1>
-<h2> &gt; " . get_the_title() . "</h2>";
-} else {
-	echo "<h1>" . get_the_title() . "</h1>";
-}; ?>
-
-
+<h1>Client Services</h1>
 
 </div>
 <div class="breadcrumbs">
@@ -30,10 +30,21 @@ yoast_breadcrumb('<p>','</p>');
 <?php get_template_part('img/icons/inline', 'chevron-down-circle.svg'); ?> <p>navigation</p></a>
 </div>
 
-
+<?php get_template_part('content', 'quick-support'); ?>
 
 
 <div class="main">
+<?php $slug = get_the_slug(); ?>
+
+<div id="title">
+<?php get_template_part('img/icons/support/inline', $slug . '.svg' ); ?>
+<h2><?php the_title(); ?></h2>
+</div>
+
+<div class="info">
+<?php dynamic_sidebar( 'client-svcs-info' ); ?>
+</div>
+
 <?php the_content(); ?>
 </div>
 
@@ -44,36 +55,17 @@ yoast_breadcrumb('<p>','</p>');
 <aside id="sidebar">
 <div class="menus">
 
-
 <?php
-  $children = wp_list_pages('title_li=&child_of='.$post->ID.'&echo=0&depth=1'); //children of current page
-  $parent = wp_list_pages('title_li=&child_of='.$post->post_parent.'&echo=0&depth=1'); //children of parent page = siblings
-  
-  if ($children) { //if the page has children ?> 
-  
-  <nav>
-  	<ul>
-    	<li><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
-        	<ul>
-				<?php echo $children; ?>
-  			</ul>
-        </li>
-    </ul>
-  </nav>
-  
-  <?php } else {  // if the page does not have children ?>
-	<nav>
-    	<ul>
-        	<li><a href="<?php echo get_permalink($post->post_parent); ?>"><?php echo get_the_title($post->post_parent); ?></a>
-            	<ul>
-					<?php echo $parent; ?>
-    			</ul>            
-            </li>
-        </ul>
-    </nav>
-    <?php } ?>
+	$cso_client_svcs = array(
+		'theme_location' => 'client-svcs',
+		'container' => 'nav',
+		'depth' => 2,
+		'walker' => new description_walker() //use our custom walker
+	);
+?>
 
-<?php get_sidebar( 'page-nav-2' ); ?>
+<?php wp_nav_menu( $cso_client_svcs ); ?>
+
 </div>
 
 <?php if ( is_active_sidebar( 'page-content' ) ) : ?>

@@ -104,6 +104,10 @@ a {
 	font-size:.8em;
 }
 
+.align-center {
+	text-align:center;
+}
+
 /*clearfix http://css-tricks.com/snippets/css/clear-fix/ */
 .group:after {
   content: "";
@@ -506,7 +510,7 @@ circle {
 		
 		@media @breakpoint-5 {
 			font-size:.4em;
-			background-image:none;
+			background-image:none !important;
 		}
 		
 		.img-gradient {
@@ -532,6 +536,13 @@ circle {
 			@media @breakpoint-3 {
 				margin-right:10px;
 			}
+		}
+		
+		.page-parent:not(.page-child) & & h1 {
+			line-height:1em;
+			vertical-align:middle;
+			margin-top: 0.67em;
+			margin-bottom: 0.67em;
 		}
 		
 		h1 {
@@ -643,9 +654,9 @@ circle {
 		font-size:1.2em;
 		float:left;
 		
-		.menus {
-			border-bottom: dotted .2em @cso-ltblue;
-			margin-bottom:.7em;
+		.widgets {
+			border-top: dotted .2em @cso-ltblue;
+			margin-top:.7em;
 		}
 		
 		@media @breakpoint-3 {
@@ -686,9 +697,11 @@ circle {
 		}
 		
 		nav {
+			
 			ul {
 				list-style:none;
 				padding-left:1em;
+				text-transform:uppercase;
 			}
 			
 			ul:first-child {
@@ -699,10 +712,15 @@ circle {
 			ul li ul {
 				margin-top:.3em;
 				font-size:.8em;
+				text-transform:none;
 			}
 			
 			&:first-child ul {
 				margin-top: 0;
+			}
+			
+			ul li ul li.current_page_item:before {
+				content:"> ";
 			}
 		
 		}		
@@ -713,7 +731,14 @@ circle {
 
 // Client Services
 
-.page-template-page-services-php {
+.page-template-page-client-services-php {
+	
+	#content #title-bar h1 {
+		line-height:1em;
+		vertical-align:middle;
+		margin-top: 0.67em;
+		margin-bottom: 0.67em;
+	}
 	
 	#title {
 		width:25em;
@@ -726,13 +751,20 @@ circle {
 			color:@cso-blue;
 		}
 		
-		[class^="icon-square-"], [class*=" icon-square-"] {
-			width:7em;
-			height:7em;
-			fill:@cso-blue;
+		svg {
+			width:6em;
+			height:6em;
+			fill:@white;
+			background-color:@cso-blue;
+			border-radius:.3em;
 			float:left;	
-			padding-right:1em;
-			padding-top:.6em;
+			padding:.5em;
+			margin-right:1em;
+			margin-top:.8em;
+			
+			@media @breakpoint-3 {
+				margin-top:0;
+			}
 		}
 	}
 	
@@ -742,6 +774,15 @@ circle {
 		height:7em;
 		border:solid .2em @cso-ltblue;
 		border-radius:1em;
+		
+		.info-box {
+			font-size:.8em;
+		}
+		
+		h3 {
+			font-size:1.5em;
+			margin:.5em 0;
+		}
 		
 		@media @breakpoint-1 {
 			float:none;
@@ -787,7 +828,7 @@ circle {
 		font-size:1.2em;
 		z-index:10;
 		
-		[class^="icon-"], [class*=" icon-"] {
+		svg {
 			height: 1.8em;
 			width: 1.8em;
 			fill:@white;
@@ -843,12 +884,9 @@ circle {
 		}
 	}
 		
-	#sidebar {
-		
-		input#s {
-			width:5.7em;
-		}
-		
+	#sidebar {		
+	
+		font-size:.9em;
 
 		[class^="icon-square-"], [class*=" icon-square-"] {
 			height: 1.2em;
@@ -858,8 +896,14 @@ circle {
 			vertical-align: middle;
 			padding-bottom: .15em;
 		}
+		
+		li {
+			margin-top:1em;
+		}
 			
 		ul ul li {
+			
+			margin-top:0;
 				
 			[class^="icon-"], [class*=" icon-"] {
 				height: 1em;
@@ -870,30 +914,53 @@ circle {
 			}
 		}
 		
-		[class^="toggle-sub-"], [class*=" toggle-sub-"] {
+		[class^="sub-menu"], [class*=" sub-menu"] {
 			display:none;
 		}
 		
-		[class^="toggle-main-"], [class*=" toggle-main-"] {
+		[class^="toggle-"], [class*=" toggle-"] {
 			
 			cursor:pointer;
+			background-image:url(img/icons/caret.svg);
+			background-size:1.2em;
+			background-repeat:no-repeat;
+			background-position:right top;
+			.btn-ease;
 			
-			.icon-caret-right {
-				height:1.2em;
-				width:1.2em;
-				fill: darken(@cso-ltblue, 10%);
-				float:right;
-				padding-top: .1em;
-				.btn-ease;
+			&.active {				
+				background-image:url(img/icons/caret-down.svg);				
 			}	
-			
-			&.active {
-				
-				.icon-caret-right {
-					transform:rotate(90deg);
-				}				
-			}			
-		}		
+		}
+		
+		.toggle-community {
+			background-position:right .8em;
+		}
+	}
+	
+	//default nav to open for each page
+		
+	&.page-id-90 #sidebar, &.page-id-91 #sidebar, &.parent-pageid-91 #sidebar { //support
+		.toggle-support ul.sub-menu {
+			display:block;
+		}
+	}
+	
+	&.page-id-93 #sidebar, &.parent-pageid-93 #sidebar { //cso university
+		.toggle-university ul.sub-menu {
+			display:block;
+		}
+	}
+	
+	&.page-id-105 #sidebar, &.parent-pageid-105 #sidebar { //cso university
+		.toggle-community ul.sub-menu {
+			display:block;
+		}
+	}
+	
+	&.page-id-107 #sidebar, &.parent-pageid-107 #sidebar { //cso university
+		.toggle-products ul.sub-menu {
+			display:block;
+		}
 	}
 }
 
@@ -913,13 +980,14 @@ circle {
 		svg {
 			width: 800px;
 			
-			path {
+			.tagline-icon {
 				fill: @cso-orange;
 			}
 			
-			tspan {
+			.tagline-text {
 				fill: @cso-blue;
 				.roboto;
+				font-size:3.25em;
 			}
 			
 			@media @breakpoint-2 {
@@ -935,7 +1003,6 @@ circle {
 		margin-top:3em;
 		position:relative;
 		z-index:2;
-		
 				
 		@media @breakpoint-1 {
 			font-size:.8em;
@@ -1146,7 +1213,7 @@ circle {
 		border-bottom-left-radius:.2em;
 		border-bottom-right-radius:.2em;
 		
-		[class^="icon-"], [class*=" icon-"] {
+		svg {
 			height:1.5em;
 			width:1.5em;
 			fill: @grey;
@@ -1224,23 +1291,23 @@ circle {
 		}
 		
 		&.general {
-			background-image:url('../img/moss.jpg');
+			background-image:url(img/bg/moss.jpg);
 		}
 		
 		&.system {
-			background-image:url('../img/newport.jpg');
+			background-image:url(img/bg/newport.jpg);
 		}
 	
 		&.outcomes {
-			background-image:url('../img/veggies.jpg');
+			background-image:url(img/bg/veggies.jpg);
 		}
 		
 		&.connect {
-			background-image:url('../img/wysteria.jpg');
+			background-image:url(img/bg/wysteria.jpg);
 		}
 		
 		&.coach {
-			background-image:url('../img/chains.jpg');
+			background-image:url(img/bg/chains.jpg);
 		}
 	}
 	
@@ -1264,7 +1331,7 @@ circle {
 			width:33%;
 			text-align:center;
 			
-			[class^="icon-"], [class*=" icon-"] {
+			svg {
 				width: 5em;
 				height: 5em;
 				fill: @white;

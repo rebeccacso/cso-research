@@ -82,6 +82,9 @@ a:focus {
 .small {
   font-size: .8em;
 }
+.align-center {
+  text-align: center;
+}
 /*clearfix http://css-tricks.com/snippets/css/clear-fix/ */
 .group:after {
   content: "";
@@ -519,7 +522,7 @@ circle {
 @media screen and (max-width: 31em) {
   #content #title-bar {
     font-size: .4em;
-    background-image: none;
+    background-image: none !important;
   }
 }
 #content #title-bar .img-gradient {
@@ -547,6 +550,12 @@ circle {
   #content #title-bar h2 {
     margin-right: 10px;
   }
+}
+.page-parent:not(.page-child) #content #title-bar  h1 {
+  line-height: 1em;
+  vertical-align: middle;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
 }
 #content #title-bar h1 {
   font-size: 5em;
@@ -658,9 +667,9 @@ circle {
   font-size: 1.2em;
   float: left;
 }
-#content #sidebar .menus {
-  border-bottom: dotted 0.2em #f5f5f5;
-  margin-bottom: .7em;
+#content #sidebar .widgets {
+  border-top: dotted 0.2em #f5f5f5;
+  margin-top: .7em;
 }
 @media screen and (max-width: 50em) {
   #content #sidebar {
@@ -701,6 +710,7 @@ circle {
 #content #sidebar nav ul {
   list-style: none;
   padding-left: 1em;
+  text-transform: uppercase;
 }
 #content #sidebar nav ul:first-child {
   padding-left: 0;
@@ -708,52 +718,76 @@ circle {
 #content #sidebar nav ul li ul {
   margin-top: .3em;
   font-size: .8em;
+  text-transform: none;
 }
 #content #sidebar nav:first-child ul {
   margin-top: 0;
 }
-.page-template-page-services-php #title {
+#content #sidebar nav ul li ul li.current_page_item:before {
+  content: "> ";
+}
+.page-template-page-client-services-php #content #title-bar h1 {
+  line-height: 1em;
+  vertical-align: middle;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+}
+.page-template-page-client-services-php #title {
   width: 25em;
   float: left;
   margin-top: -0.6em;
   margin-bottom: 2em;
 }
-.page-template-page-services-php #title h2 {
+.page-template-page-client-services-php #title h2 {
   display: inline;
   color: #2b85c4;
 }
-.page-template-page-services-php #title [class^="icon-square-"],
-.page-template-page-services-php #title [class*=" icon-square-"] {
-  width: 7em;
-  height: 7em;
-  fill: #2b85c4;
+.page-template-page-client-services-php #title svg {
+  width: 6em;
+  height: 6em;
+  fill: #ffffff;
+  background-color: #2b85c4;
+  border-radius: .3em;
   float: left;
-  padding-right: 1em;
-  padding-top: .6em;
+  padding: .5em;
+  margin-right: 1em;
+  margin-top: .8em;
 }
-.page-template-page-services-php .info {
+@media screen and (max-width: 50em) {
+  .page-template-page-client-services-php #title svg {
+    margin-top: 0;
+  }
+}
+.page-template-page-client-services-php .info {
   float: right;
   width: 25em;
   height: 7em;
   border: solid 0.2em #f5f5f5;
   border-radius: 1em;
 }
+.page-template-page-client-services-php .info .info-box {
+  font-size: .8em;
+}
+.page-template-page-client-services-php .info h3 {
+  font-size: 1.5em;
+  margin: .5em 0;
+}
 @media screen and (max-width: 74em) {
-  .page-template-page-services-php .info {
+  .page-template-page-client-services-php .info {
     float: none;
     clear: both;
     width: calc(100% - 4em);
     margin: 2em;
   }
 }
-.page-template-page-services-php .main h3 {
+.page-template-page-client-services-php .main h3 {
   color: #2b85c4;
 }
-.page-template-page-services-php .main h3:first-of-type {
+.page-template-page-client-services-php .main h3:first-of-type {
   clear: both;
 }
-.page-template-page-services-php .main [class^="icon-square-"],
-.page-template-page-services-php .main [class*=" icon-square-"] {
+.page-template-page-client-services-php .main [class^="icon-square-"],
+.page-template-page-client-services-php .main [class*=" icon-square-"] {
   width: 1em;
   height: 1em;
   fill: #2b85c4;
@@ -761,7 +795,7 @@ circle {
   padding-top: .2em;
   padding-right: .2em;
 }
-.page-template-page-services-php #quick-support {
+.page-template-page-client-services-php #quick-support {
   position: fixed;
   right: 0;
   top: 22em;
@@ -774,48 +808,47 @@ circle {
   font-size: 1.2em;
   z-index: 10;
 }
-.page-template-page-services-php #quick-support a {
+.page-template-page-client-services-php #quick-support a {
   color: #ffffff;
 }
-.page-template-page-services-php #quick-support a:hover,
-.page-template-page-services-php #quick-support a:active,
-.page-template-page-services-php #quick-support a:focus {
+.page-template-page-client-services-php #quick-support a:hover,
+.page-template-page-client-services-php #quick-support a:active,
+.page-template-page-client-services-php #quick-support a:focus {
   color: #ffffff;
   text-decoration: underline;
 }
-.page-template-page-services-php #quick-support [class^="icon-"],
-.page-template-page-services-php #quick-support [class*=" icon-"] {
+.page-template-page-client-services-php #quick-support svg {
   height: 1.8em;
   width: 1.8em;
   fill: #ffffff;
   display: block;
   margin: 0 auto;
 }
-.page-template-page-services-php #quick-support ul {
+.page-template-page-client-services-php #quick-support ul {
   list-style: none;
   padding: 0;
   margin: 0;
   text-align: center;
 }
-.page-template-page-services-php #quick-support ul li {
+.page-template-page-client-services-php #quick-support ul li {
   margin-bottom: .4em;
 }
-.page-template-page-services-php #quick-support ul li:hover [class^="icon-"],
-.page-template-page-services-php #quick-support ul li:hover [class*=" icon-"] {
+.page-template-page-client-services-php #quick-support ul li:hover [class^="icon-"],
+.page-template-page-client-services-php #quick-support ul li:hover [class*=" icon-"] {
   fill: rgba(255, 255, 255, 0.7);
 }
 @media screen and (max-width: 61.5em) {
-  .page-template-page-services-php #quick-support {
+  .page-template-page-client-services-php #quick-support {
     font-size: 1em;
   }
 }
 @media screen and (max-width: 50em) {
-  .page-template-page-services-php #quick-support {
+  .page-template-page-client-services-php #quick-support {
     top: 18em;
   }
 }
 @media screen and (max-width: 31em) {
-  .page-template-page-services-php #quick-support {
+  .page-template-page-client-services-php #quick-support {
     top: auto;
     bottom: 0;
     width: 100%;
@@ -824,23 +857,23 @@ circle {
     border-radius: 0;
     background-color: rgba(247, 147, 30, 0.9);
   }
-  .page-template-page-services-php #quick-support [class^="icon-"],
-  .page-template-page-services-php #quick-support [class*=" icon-"] {
+  .page-template-page-client-services-php #quick-support [class^="icon-"],
+  .page-template-page-client-services-php #quick-support [class*=" icon-"] {
     display: none;
   }
-  .page-template-page-services-php #quick-support ul {
+  .page-template-page-client-services-php #quick-support ul {
     width: 100%;
   }
-  .page-template-page-services-php #quick-support ul li {
+  .page-template-page-client-services-php #quick-support ul li {
     display: inline-block;
     width: 18%;
   }
 }
-.page-template-page-services-php #sidebar input#s {
-  width: 5.7em;
+.page-template-page-client-services-php #sidebar {
+  font-size: .9em;
 }
-.page-template-page-services-php #sidebar [class^="icon-square-"],
-.page-template-page-services-php #sidebar [class*=" icon-square-"] {
+.page-template-page-client-services-php #sidebar [class^="icon-square-"],
+.page-template-page-client-services-php #sidebar [class*=" icon-square-"] {
   height: 1.2em;
   width: 1.2em;
   fill: #2b85c4;
@@ -848,37 +881,59 @@ circle {
   vertical-align: middle;
   padding-bottom: .15em;
 }
-.page-template-page-services-php #sidebar ul ul li [class^="icon-"],
-.page-template-page-services-php #sidebar ul ul li [class*=" icon-"] {
+.page-template-page-client-services-php #sidebar li {
+  margin-top: 1em;
+}
+.page-template-page-client-services-php #sidebar ul ul li {
+  margin-top: 0;
+}
+.page-template-page-client-services-php #sidebar ul ul li [class^="icon-"],
+.page-template-page-client-services-php #sidebar ul ul li [class*=" icon-"] {
   height: 1em;
   width: 1em;
   fill: #2b85c4;
   padding-right: .3em;
   vertical-align: middle;
 }
-.page-template-page-services-php #sidebar [class^="toggle-sub-"],
-.page-template-page-services-php #sidebar [class*=" toggle-sub-"] {
+.page-template-page-client-services-php #sidebar [class^="sub-menu"],
+.page-template-page-client-services-php #sidebar [class*=" sub-menu"] {
   display: none;
 }
-.page-template-page-services-php #sidebar [class^="toggle-main-"],
-.page-template-page-services-php #sidebar [class*=" toggle-main-"] {
+.page-template-page-client-services-php #sidebar [class^="toggle-"],
+.page-template-page-client-services-php #sidebar [class*=" toggle-"] {
   cursor: pointer;
-}
-.page-template-page-services-php #sidebar [class^="toggle-main-"] .icon-caret-right,
-.page-template-page-services-php #sidebar [class*=" toggle-main-"] .icon-caret-right {
-  height: 1.2em;
-  width: 1.2em;
-  fill: #dcdcdc;
-  float: right;
-  padding-top: .1em;
+  background-image: url(img/icons/caret.svg);
+  background-size: 1.2em;
+  background-repeat: no-repeat;
+  background-position: right top;
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
 }
-.page-template-page-services-php #sidebar [class^="toggle-main-"].active .icon-caret-right,
-.page-template-page-services-php #sidebar [class*=" toggle-main-"].active .icon-caret-right {
-  transform: rotate(90deg);
+.page-template-page-client-services-php #sidebar [class^="toggle-"].active,
+.page-template-page-client-services-php #sidebar [class*=" toggle-"].active {
+  background-image: url(img/icons/caret-down.svg);
+}
+.page-template-page-client-services-php #sidebar .toggle-community {
+  background-position: right .8em;
+}
+.page-template-page-client-services-php.page-id-90 #sidebar .toggle-support ul.sub-menu,
+.page-template-page-client-services-php.page-id-91 #sidebar .toggle-support ul.sub-menu,
+.page-template-page-client-services-php.parent-pageid-91 #sidebar .toggle-support ul.sub-menu {
+  display: block;
+}
+.page-template-page-client-services-php.page-id-93 #sidebar .toggle-university ul.sub-menu,
+.page-template-page-client-services-php.parent-pageid-93 #sidebar .toggle-university ul.sub-menu {
+  display: block;
+}
+.page-template-page-client-services-php.page-id-105 #sidebar .toggle-community ul.sub-menu,
+.page-template-page-client-services-php.parent-pageid-105 #sidebar .toggle-community ul.sub-menu {
+  display: block;
+}
+.page-template-page-client-services-php.page-id-107 #sidebar .toggle-products ul.sub-menu,
+.page-template-page-client-services-php.parent-pageid-107 #sidebar .toggle-products ul.sub-menu {
+  display: block;
 }
 #home {
   width: 100%;
@@ -892,13 +947,14 @@ circle {
 #home #tagline svg {
   width: 800px;
 }
-#home #tagline svg path {
+#home #tagline svg .tagline-icon {
   fill: #f7931e;
 }
-#home #tagline svg tspan {
+#home #tagline svg .tagline-text {
   fill: #2b85c4;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  font-size: 3.25em;
 }
 @media screen and (max-width: 61.5em) {
   #home #tagline svg {
@@ -1109,8 +1165,7 @@ circle {
 #home .top a:focus {
   color: #666666;
 }
-#home .top [class^="icon-"],
-#home .top [class*=" icon-"] {
+#home .top svg {
   height: 1.5em;
   width: 1.5em;
   fill: #999999;
@@ -1182,19 +1237,19 @@ circle {
   display: block;
 }
 #home .bg-image.general {
-  background-image: url('../img/moss.jpg');
+  background-image: url(img/bg/moss.jpg);
 }
 #home .bg-image.system {
-  background-image: url('../img/newport.jpg');
+  background-image: url(img/bg/newport.jpg);
 }
 #home .bg-image.outcomes {
-  background-image: url('../img/veggies.jpg');
+  background-image: url(img/bg/veggies.jpg);
 }
 #home .bg-image.connect {
-  background-image: url('../img/wysteria.jpg');
+  background-image: url(img/bg/wysteria.jpg);
 }
 #home .bg-image.coach {
-  background-image: url('../img/chains.jpg');
+  background-image: url(img/bg/chains.jpg);
 }
 #home .contact-go {
   width: calc(100% - 6em);
@@ -1216,8 +1271,7 @@ circle {
   width: 33%;
   text-align: center;
 }
-#home .contact-go .moreinfo [class^="icon-"],
-#home .contact-go .moreinfo [class*=" icon-"] {
+#home .contact-go .moreinfo svg {
   width: 5em;
   height: 5em;
   fill: #ffffff;
