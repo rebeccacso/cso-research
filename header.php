@@ -58,7 +58,7 @@
 
 <div class="search">
 
-<form id="searchform" class="searchform" action="http://campuscareercoach.com/" method="get" role="search">
+<form id="searchform" class="searchform" action="<?php bloginfo('url'); ?>" method="get" role="search">
 
     <div>
         <label class="screen-reader-text" for="s"></label>

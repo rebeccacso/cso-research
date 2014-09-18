@@ -38,14 +38,18 @@ yoast_breadcrumb('<p>','</p>');
 
 <div id="title">
 <?php get_template_part('img/icons/support/inline', $slug . '.svg' ); ?>
-<h2><?php the_title(); ?></h2>
+<span><h2><?php the_title(); ?></h2></span>
 </div>
 
-<div class="info">
-<?php dynamic_sidebar( 'client-svcs-info' ); ?>
-</div>
+<?php if ( is_active_sidebar( 'client-svcs-info' ) ) : ?>
+		<div class="info"><?php dynamic_sidebar( 'client-svcs-info' ); ?></div>
+<?php endif; ?>
+
+<div class="content">
 
 <?php the_content(); ?>
+
+</div>
 </div>
 
 <div class="sidebar-icon bottom"><a href="#header">
@@ -67,9 +71,19 @@ yoast_breadcrumb('<p>','</p>');
 
 </div>
 
-<?php if ( is_active_sidebar( 'page-content' ) ) : ?>
-		<div class="widgets"><?php dynamic_sidebar( 'page-content' ); ?></div>
-<?php endif; ?>
+
+
+		<div class="widgets">
+<form id="searchform" class="searchform" action="<?php bloginfo('url'); ?>" method="get" role="search">
+
+    <div>
+        <label class="screen-reader-text" for="s"></label>
+        <input id="s" type="text" name="s" value=""></input>
+        <input id="searchsubmit" type="submit" value="Search"></input>
+        <input type="hidden" name="search" value="client-services" />
+    </div>
+
+</form></div>
 
 
 </aside>

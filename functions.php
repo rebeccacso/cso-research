@@ -96,3 +96,56 @@ function get_the_slug( $id=null ){
 function the_slug( $id=null ){
   echo apply_filters( 'the_slug', get_the_slug($id) );
 }
+
+/* SHORTCODES */
+
+// https://github.com/halfempty/template-part-shortcode
+
+function cso_template_part_shortcode_clientsvcs( $atts ) {
+
+	extract( shortcode_atts( array(
+		'icon' => '',
+	), $atts ) );
+
+	$file = locate_template('img/icons/support/inline-' . $icon . '.svg.php');
+
+    ob_start();
+    include $file;
+    $template = ob_get_contents();
+    ob_end_clean();
+    return $template;
+
+}
+add_shortcode( 'cs-icon', 'cso_template_part_shortcode_clientsvcs' );
+
+
+function cso_template_part_shortcode_icons( $atts ) {
+
+	extract( shortcode_atts( array(
+		'icon' => '',
+	), $atts ) );
+
+	$file = locate_template('img/icons/inline-' . $icon . '.svg.php');
+
+    ob_start();
+    include $file;
+    $template = ob_get_contents();
+    ob_end_clean();
+    return $template;
+
+}
+add_shortcode( 'icon', 'cso_template_part_shortcode_icons' );
+
+// Custom Search Results Page for Client Services
+
+ function cso_template_chooser($template)   
+{    
+  global $wp_query;   
+  $search = get_query_var('search');   
+  if( $wp_query->is_search && $search == 'client-services' )   
+  {
+    return locate_template('search-client-services.php');  //  redirect to archive-search.php
+  }   
+  return $template;   
+}
+add_filter('template_include', 'cso_template_chooser'); 

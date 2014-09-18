@@ -2,7 +2,7 @@
 
 <!--CONTENT-->
 <div id="content">
- <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
 
 <?php $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
 
@@ -34,7 +34,11 @@ yoast_breadcrumb('<p>','</p>');
 
 
 <div class="main">
-<?php the_content(); ?>
+ <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+ <h3><?php the_title(); ?></h3>
+     <?php endwhile; else: ?>
+    <p><?php _e( 'Sorry, this page is not currently available.' ); ?></p>
+    <?php endif; ?>
 </div>
 
 <div class="sidebar-icon bottom"><a href="#header">
@@ -82,9 +86,7 @@ yoast_breadcrumb('<p>','</p>');
 
 
 </aside>
-    <?php endwhile; else: ?>
-    <p><?php _e( 'Sorry, this page is not currently available.' ); ?></p>
-    <?php endif; ?>
+
 
 </div><!--/#content-->
 

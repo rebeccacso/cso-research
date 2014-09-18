@@ -76,6 +76,10 @@ a {
 	}
 }
 
+.grey {
+	color:@grey;
+}
+
 .grey-link {
 	color: @grey;
 	
@@ -183,6 +187,23 @@ input[type="submit"] {
 	padding-bottom: .14em;
 	
 }
+
+		
+		
+#searchform input[type="submit"] {
+	background-image:url(img/icons/search.svg);
+	background-repeat:no-repeat;
+	color:transparent;
+	background-color:transparent;
+	padding: 0px;
+	height: 2em;
+	width: 2em;
+			
+	&:hover {
+		background-image:url(img/icons/search-blue.svg);
+	}
+}
+
 
 //demo button
 			
@@ -347,21 +368,6 @@ circle {
 	
 	.search {
 		margin-top: calc(~"8.2em / 2");
-		
-		
-		input[type=submit] {
-			background-image:url(img/icons/search.svg);
-			background-repeat:no-repeat;
-			color:transparent;
-			background-color:transparent;
-			padding: 0px;
-			height: 2em;
-			width: 2em;
-			
-			&:hover {
-				background-image:url(img/icons/search-blue.svg);
-			}
-		}
 		
 		@media @breakpoint-1 {
 			display:none;
@@ -743,14 +749,23 @@ circle {
 	}
 	
 	#title {
-		width:25em;
+		width:23em;
 		float:left;
 		margin-bottom:2em;
+		height:7em;
+		line-height:7em;
 		
-		h2 {
-			display:inline;
-			color:@black;
-			line-height:1.1em;
+		span {
+			display:inline-block;
+			line-height:0;
+			vertical-align:middle;
+			width:15em;
+			
+			h2, h2:first-child {
+				color:@black;
+				line-height:1.1em;
+				margin:0;
+			}
 		}
 		
 		svg {
@@ -765,6 +780,12 @@ circle {
 			@media @breakpoint-3 {
 				margin-top:-.6em;
 			}
+		}
+		
+		@media @breakpoint-1 {
+			float:none;
+			margin-left:auto;
+			margin-right:auto;
 		}
 	}
 	
@@ -792,6 +813,8 @@ circle {
 		height:7em;
 		border:solid .2em @cso-ltblue;
 		border-radius:1em;
+		box-sizing:border-box;
+		padding:0 .5em;
 		
 		.info-box {
 			font-size:.8em;
@@ -800,6 +823,7 @@ circle {
 		h3 {
 			font-size:1.5em;
 			margin:.5em 0;
+			color:@black;
 		}
 		
 		@media @breakpoint-1 {
@@ -807,29 +831,54 @@ circle {
 			clear:both;
 			width:calc(~"100% - 4em");
 			margin:2em;
+			min-height:7em;
+			height:auto;
+			padding-bottom:.5em;
 		}
 		
 	}
 	
-	.main {
+	.main .content {
+		
+		clear:both;
 		
 		h3 {
 			color:@cso-blue;
+			margin-bottom:0;
 		}
 		
-		h3:first-of-type {
-			clear:both;
-		}
-		
-		[class^="icon-square-"], [class*=" icon-square-"] {
-			width:1em;
-			height:1em;
-			fill:@cso-blue;
+		svg {
+			width:.8em;
+			height:.8em;
 			float:left;
-			padding-top: .2em;
-			padding-right: .2em;
+			padding:.15em;
+			border-radius:.1em;
+			fill:@white;
+			margin-top: .15em;
+			margin-right: .2em;
 		}
 		
+	}
+	
+	&.page-id-91 .main svg, &.parent-pageid-91 .main svg {
+		background-color:@cso-blue;
+	}
+		
+	&.page-id-93 .main, &.parent-pageid-93 .main {
+		h3 {
+			color:@cso-orange;
+		}
+		svg {
+			background-color:@cso-orange;
+		}
+	}
+		
+	&.page-id-105 .main svg, &.parent-pageid-105 .main svg {
+		background-color:@services-red;
+	}
+		
+	&.page-id-107 .main svg, &.parent-pageid-107 .main svg {
+		background-color:@services-green;
 	}
 	
 	
@@ -887,7 +936,7 @@ circle {
 			border-radius:0;
 			background-color:fade(@cso-orange, 90%);
 			
-			[class^="icon-"], [class*=" icon-"] {
+			svg {
 				display:none;
 			}
 			
@@ -952,6 +1001,22 @@ circle {
 		
 		.toggle-community {
 			background-position:right .8em;
+		}
+		
+		.widgets {
+			#searchform {
+				margin-top:1em;
+				
+				input[type="submit"] {
+					width:1.5em;
+					height:1.5em;
+				}
+			}
+			
+			#s {
+				width:calc(~"100% - 2.5em");
+			}
+			
 		}
 	}
 	
