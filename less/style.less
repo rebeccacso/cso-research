@@ -796,9 +796,11 @@ circle {
 
 .page-template-page-client-services-php {
 	
-	#content .main {
-		width: calc(~"100% - 20.3em");
-		padding-right:2em;
+	@media screen and (min-width: 31em) {
+		#content .main {
+			width: calc(~"100% - 20.3em");
+			padding-right:2em;
+		}
 	}
 		
 	
@@ -1310,6 +1312,39 @@ iframe.client-map {
 	.left {
 		max-width:30em;
 	}
+}
+
+
+//Team Plugin Styles
+
+.tshowcase-box-title {
+	font-size: 1.5em;
+	margin: .5em 0;
+	color:@cso-orange;
+}
+
+.tshowcase-single-position {
+	font-weight:bold;
+}
+
+.tshowcase-single-position,
+.tshowcase-single-location,
+.tshowcase-single-website,
+.tshowcase-single-telephone {
+	margin:.2em 0;
+	padding-left:1em;
+	text-indent:-.56em;
+}
+
+.tshowcase-single-freehtml {
+	margin-top:1em;
+	border-top:solid .2em @cso-ltblue;
+	font-style:italic;
+	padding-top:.5em;
+}
+
+i.fa {
+	color:@cso-orange;
 }
 
 
