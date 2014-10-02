@@ -44,6 +44,9 @@
         <script>window.jQuery || document.write('<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
          <script src="<?php echo get_template_directory_uri(); ?>/js/main.js" type="text/javascript"></script>
         <script src="<?php echo get_template_directory_uri(); ?>/js/plugins.js" type="text/javascript"></script>
+        <?php if ( is_home() ) { ?>
+        	<script src="<?php echo get_template_directory_uri(); ?>/js/home.js" type="text/javascript"></script>
+            <?php } ?>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

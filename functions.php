@@ -136,6 +136,33 @@ function cso_template_part_shortcode_icons( $atts ) {
 }
 add_shortcode( 'icon', 'cso_template_part_shortcode_icons' );
 
+function cso_template_part_shortcode_content( $atts ) {
+
+	extract( shortcode_atts( array(
+		'name' => '',
+	), $atts ) );
+
+	$file = locate_template('content/content-' . $name . '.php');
+
+    ob_start();
+    include $file;
+    $template = ob_get_contents();
+    ob_end_clean();
+    return $template;
+
+}
+add_shortcode( 'content', 'cso_template_part_shortcode_content' );
+
+
+function cso_div_shortcode( $atts, $content = null ) {
+	extract( shortcode_atts( array(
+		'class' => '',
+	), $atts ) );
+	return '<div class="' . $class . '">' . $content . '</div>';
+}
+add_shortcode( 'div', 'cso_div_shortcode' );
+
+
 // Custom Search Results Page for Client Services
 
  function cso_template_chooser($template)   
@@ -149,3 +176,66 @@ add_shortcode( 'icon', 'cso_template_part_shortcode_icons' );
   return $template;   
 }
 add_filter('template_include', 'cso_template_chooser'); 
+
+/* ADD PAGE EXCERPT */
+
+add_action('init', 'cso_page_excerpt');
+
+function cso_page_excerpt() {
+	add_post_type_support( 'page', 'excerpt' );
+}
+
+
+/* ADD META to CATEGORIES */
+//https://pippinsplugins.com/adding-custom-meta-fields-to-taxonomies/
+
+// Add term page
+function cso_taxonomy_add_new_meta_field() {
+	// this will add the custom meta field to the add new term page
+	?>
+	<div class="form-field">
+		<label for="term_meta[enews_edition]"><?php _e( 'eNews Edition', 'pippin' ); ?></label>
+		<input type="text" name="term_meta[enews_edition]" id="term_meta[enews_edition]" value="">
+		<p class="description"><?php _e( 'Enter the edition of the eNews, in the format yyyy-mm','pippin' ); ?></p>
+	</div>
+<?php
+}
+add_action( 'category_add_form_fields', 'cso_taxonomy_add_new_meta_field', 10, 2 );
+
+
+// Edit term page
+function cso_taxonomy_edit_meta_field($term) {
+ 
+	// put the term ID into a variable
+	$t_id = $term->term_id;
+ 
+	// retrieve the existing value(s) for this meta field. This returns an array
+	$term_meta = get_option( "taxonomy_$t_id" ); ?>
+	<tr class="form-field">
+	<th scope="row" valign="top"><label for="term_meta[enews_edition]"><?php _e( 'eNews Edition', 'pippin' ); ?></label></th>
+		<td>
+			<input type="text" name="term_meta[enews_edition]" id="term_meta[custom_term_meta]" value="<?php echo date("Y-m", $term_meta['enews_edition'] ) ? date("Y-m", $term_meta['enews_edition'] ) : ''; ?>">
+			<p class="description"><?php _e( 'Enter the edition of the eNews, in the format yyyy-mm','pippin' ); ?></p>
+		</td>
+	</tr>
+<?php
+}
+add_action( 'category_edit_form_fields', 'cso_taxonomy_edit_meta_field', 10, 2 );
+
+// Save extra taxonomy fields callback function.
+function save_taxonomy_custom_meta( $term_id ) {
+	if ( isset( $_POST['term_meta'] ) ) {
+		$t_id = $term_id;
+		$term_meta = get_option( "taxonomy_$t_id" );
+		$cat_keys = array_keys( $_POST['term_meta'] );
+		foreach ( $cat_keys as $key ) {
+			if ( isset ( $_POST['term_meta'][$key] ) ) {
+				$term_meta[$key] = strtotime($_POST['term_meta'][$key]);
+			}
+		}
+		// Save the option array.
+		update_option( "taxonomy_$t_id", $term_meta );
+	}
+}  
+add_action( 'edited_category', 'save_taxonomy_custom_meta', 10, 2 );  
+add_action( 'create_category', 'save_taxonomy_custom_meta', 10, 2 );

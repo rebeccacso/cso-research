@@ -30,7 +30,7 @@ yoast_breadcrumb('<p>','</p>');
 <?php get_template_part('img/icons/inline', 'chevron-down-circle.svg'); ?> <p>navigation</p></a>
 </div>
 
-<?php get_template_part('content', 'quick-support'); ?>
+<?php get_template_part('content/content', 'quick-support'); ?>
 
 
 <div class="main">

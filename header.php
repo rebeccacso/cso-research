@@ -12,7 +12,8 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>">
-		<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2.min.js"></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2.min.js"></script>			
+        
        
         <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:300' rel='stylesheet' type='text/css'>
         
