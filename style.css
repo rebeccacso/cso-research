@@ -833,7 +833,8 @@ circle {
   background-color: #2b85c4;
 }
 .page-template-page-client-services-php.page-id-93 #title svg,
-.page-template-page-client-services-php.parent-pageid-93 #title svg {
+.page-template-page-client-services-php.parent-pageid-93 #title svg,
+.page-template-page-client-services-php.parent-pageid-94 #title svg {
   background-color: #f7931e;
 }
 .page-template-page-client-services-php.page-id-105 #title svg,
@@ -908,43 +909,55 @@ circle {
   background-color: #2b85c4;
 }
 .page-template-page-client-services-php.page-id-93 .main h3,
-.page-template-page-client-services-php.parent-pageid-93 .main h3 {
+.page-template-page-client-services-php.parent-pageid-93 .main h3,
+.page-template-page-client-services-php.parent-pageid-94 .main h3 {
   color: #f7931e;
 }
 .page-template-page-client-services-php.page-id-93 .main h3 a,
-.page-template-page-client-services-php.parent-pageid-93 .main h3 a {
+.page-template-page-client-services-php.parent-pageid-93 .main h3 a,
+.page-template-page-client-services-php.parent-pageid-94 .main h3 a {
   color: #f7931e;
 }
 .page-template-page-client-services-php.page-id-93 .main h3 a:hover,
 .page-template-page-client-services-php.parent-pageid-93 .main h3 a:hover,
+.page-template-page-client-services-php.parent-pageid-94 .main h3 a:hover,
 .page-template-page-client-services-php.page-id-93 .main h3 a:active,
 .page-template-page-client-services-php.parent-pageid-93 .main h3 a:active,
+.page-template-page-client-services-php.parent-pageid-94 .main h3 a:active,
 .page-template-page-client-services-php.page-id-93 .main h3 a:focus,
-.page-template-page-client-services-php.parent-pageid-93 .main h3 a:focus {
+.page-template-page-client-services-php.parent-pageid-93 .main h3 a:focus,
+.page-template-page-client-services-php.parent-pageid-94 .main h3 a:focus {
   color: #da7908;
 }
 .page-template-page-client-services-php.page-id-93 .main svg,
-.page-template-page-client-services-php.parent-pageid-93 .main svg {
+.page-template-page-client-services-php.parent-pageid-93 .main svg,
+.page-template-page-client-services-php.parent-pageid-94 .main svg {
   background-color: #f7931e;
 }
 .page-template-page-client-services-php.page-id-105 .main h3,
-.page-template-page-client-services-php.parent-pageid-105 .main h3 {
+.page-template-page-client-services-php.parent-pageid-105 .main h3,
+.page-template-page-client-services-php.parent-pageid-155 .main h3 {
   color: #c1272d;
 }
 .page-template-page-client-services-php.page-id-105 .main h3 a,
-.page-template-page-client-services-php.parent-pageid-105 .main h3 a {
+.page-template-page-client-services-php.parent-pageid-105 .main h3 a,
+.page-template-page-client-services-php.parent-pageid-155 .main h3 a {
   color: #c1272d;
 }
 .page-template-page-client-services-php.page-id-105 .main h3 a:hover,
 .page-template-page-client-services-php.parent-pageid-105 .main h3 a:hover,
+.page-template-page-client-services-php.parent-pageid-155 .main h3 a:hover,
 .page-template-page-client-services-php.page-id-105 .main h3 a:active,
 .page-template-page-client-services-php.parent-pageid-105 .main h3 a:active,
+.page-template-page-client-services-php.parent-pageid-155 .main h3 a:active,
 .page-template-page-client-services-php.page-id-105 .main h3 a:focus,
-.page-template-page-client-services-php.parent-pageid-105 .main h3 a:focus {
+.page-template-page-client-services-php.parent-pageid-105 .main h3 a:focus,
+.page-template-page-client-services-php.parent-pageid-155 .main h3 a:focus {
   color: #971e23;
 }
 .page-template-page-client-services-php.page-id-105 .main svg,
-.page-template-page-client-services-php.parent-pageid-105 .main svg {
+.page-template-page-client-services-php.parent-pageid-105 .main svg,
+.page-template-page-client-services-php.parent-pageid-155 .main svg {
   background-color: #c1272d;
 }
 .page-template-page-client-services-php.page-id-107 .main h3,
@@ -1155,110 +1168,6 @@ circle {
 .page-template-page-client-services-php #sidebar .widgets #s {
   width: calc(100% - 2.5em);
 }
-.page-template-page-client-services-php.page-id-90 #sidebar .toggle-support ul.sub-menu,
-.page-template-page-client-services-php.page-id-91 #sidebar .toggle-support ul.sub-menu,
-.page-template-page-client-services-php.parent-pageid-91 #sidebar .toggle-support ul.sub-menu {
-  display: block;
-}
-.page-template-page-client-services-php.page-id-93 #sidebar .toggle-university ul.sub-menu,
-.page-template-page-client-services-php.parent-pageid-93 #sidebar .toggle-university ul.sub-menu {
-  display: block;
-}
-.page-template-page-client-services-php.page-id-105 #sidebar .toggle-community ul.sub-menu,
-.page-template-page-client-services-php.parent-pageid-105 #sidebar .toggle-community ul.sub-menu {
-  display: block;
-}
-.page-template-page-client-services-php.page-id-107 #sidebar .toggle-products ul.sub-menu,
-.page-template-page-client-services-php.parent-pageid-107 #sidebar .toggle-products ul.sub-menu {
-  display: block;
-}
-.search .page-template-page-client-services-php  #content #title-bar h1 {
-  margin-top: 0.15em;
-  margin-bottom: .05em;
-  line-height: 1.4em;
-}
-.search .page-template-page-client-services-php  #content .main h2 {
-  margin-bottom: 0;
-}
-.search .page-template-page-client-services-php  #searchform {
-  font-size: 1.2em;
-  margin-left: 2em;
-  margin-bottom: 2em;
-}
-.search .page-template-page-client-services-php  #searchform p {
-  margin-bottom: 0;
-}
-.search .page-template-page-client-services-php  #searchform #s {
-  width: 20em;
-}
-.search .page-template-page-client-services-php  .post-91 h3,
-.search .page-template-page-client-services-php  .parent-pageid-91 h3 {
-  color: #2b85c4;
-}
-.search .page-template-page-client-services-php  .post-91 svg,
-.search .page-template-page-client-services-php  .parent-pageid-91 svg {
-  background-color: #2b85c4;
-}
-.search .page-template-page-client-services-php  .post-93 h3,
-.search .page-template-page-client-services-php  .parent-pageid-93 h3 {
-  color: #f7931e;
-}
-.search .page-template-page-client-services-php  .post-93 h3 a,
-.search .page-template-page-client-services-php  .parent-pageid-93 h3 a {
-  color: #f7931e;
-}
-.search .page-template-page-client-services-php  .post-93 h3 a:hover,
-.search .page-template-page-client-services-php  .parent-pageid-93 h3 a:hover,
-.search .page-template-page-client-services-php  .post-93 h3 a:active,
-.search .page-template-page-client-services-php  .parent-pageid-93 h3 a:active,
-.search .page-template-page-client-services-php  .post-93 h3 a:focus,
-.search .page-template-page-client-services-php  .parent-pageid-93 h3 a:focus {
-  color: #da7908;
-}
-.search .page-template-page-client-services-php  .post-93 svg,
-.search .page-template-page-client-services-php  .parent-pageid-93 svg {
-  background-color: #f7931e;
-}
-.search .page-template-page-client-services-php  .post-105 h3,
-.search .page-template-page-client-services-php  .parent-pageid-105 h3 {
-  color: #c1272d;
-}
-.search .page-template-page-client-services-php  .post-105 h3 a,
-.search .page-template-page-client-services-php  .parent-pageid-105 h3 a {
-  color: #c1272d;
-}
-.search .page-template-page-client-services-php  .post-105 h3 a:hover,
-.search .page-template-page-client-services-php  .parent-pageid-105 h3 a:hover,
-.search .page-template-page-client-services-php  .post-105 h3 a:active,
-.search .page-template-page-client-services-php  .parent-pageid-105 h3 a:active,
-.search .page-template-page-client-services-php  .post-105 h3 a:focus,
-.search .page-template-page-client-services-php  .parent-pageid-105 h3 a:focus {
-  color: #971e23;
-}
-.search .page-template-page-client-services-php  .post-105 svg,
-.search .page-template-page-client-services-php  .parent-pageid-105 svg {
-  background-color: #c1272d;
-}
-.search .page-template-page-client-services-php  .post-107 h3,
-.search .page-template-page-client-services-php  .parent-pageid-107 h3 {
-  color: #83bc3c;
-}
-.search .page-template-page-client-services-php  .post-107 h3 a,
-.search .page-template-page-client-services-php  .parent-pageid-107 h3 a {
-  color: #83bc3c;
-}
-.search .page-template-page-client-services-php  .post-107 h3 a:hover,
-.search .page-template-page-client-services-php  .parent-pageid-107 h3 a:hover,
-.search .page-template-page-client-services-php  .post-107 h3 a:active,
-.search .page-template-page-client-services-php  .parent-pageid-107 h3 a:active,
-.search .page-template-page-client-services-php  .post-107 h3 a:focus,
-.search .page-template-page-client-services-php  .parent-pageid-107 h3 a:focus {
-  color: #689530;
-}
-.search .page-template-page-client-services-php  .post-107 svg,
-.search .page-template-page-client-services-php  .parent-pageid-107 svg {
-  background-color: #83bc3c;
-}
 .category .content {
   margin-left: 3em;
 }
@@ -1279,6 +1188,100 @@ circle {
 }
 .category #sidebar li.page-item-126:before {
   content: "> ";
+}
+.search #content #title-bar h1 {
+  line-height: 1em;
+  vertical-align: middle;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+}
+.search .page-template-page-client-services-php #content #title-bar h1 {
+  margin-top: 0.15em;
+  margin-bottom: .05em;
+  line-height: 1.4em;
+}
+.search #content .main h2,
+.search #content .main h3 {
+  margin-bottom: 0;
+}
+.search .main #searchform {
+  font-size: 1.2em;
+  margin-left: 2em;
+  margin-bottom: 2em;
+}
+.search .main #searchform p {
+  margin-bottom: 0;
+}
+.search .main #searchform #s {
+  width: 20em;
+}
+.search .post-91 h3,
+.search .parent-pageid-91 h3 {
+  color: #2b85c4;
+}
+.search .post-91 svg,
+.search .parent-pageid-91 svg {
+  background-color: #2b85c4;
+}
+.search .post-93 h3,
+.search .parent-pageid-93 h3 {
+  color: #f7931e;
+}
+.search .post-93 h3 a,
+.search .parent-pageid-93 h3 a {
+  color: #f7931e;
+}
+.search .post-93 h3 a:hover,
+.search .parent-pageid-93 h3 a:hover,
+.search .post-93 h3 a:active,
+.search .parent-pageid-93 h3 a:active,
+.search .post-93 h3 a:focus,
+.search .parent-pageid-93 h3 a:focus {
+  color: #da7908;
+}
+.search .post-93 svg,
+.search .parent-pageid-93 svg {
+  background-color: #f7931e;
+}
+.search .post-105 h3,
+.search .parent-pageid-105 h3 {
+  color: #c1272d;
+}
+.search .post-105 h3 a,
+.search .parent-pageid-105 h3 a {
+  color: #c1272d;
+}
+.search .post-105 h3 a:hover,
+.search .parent-pageid-105 h3 a:hover,
+.search .post-105 h3 a:active,
+.search .parent-pageid-105 h3 a:active,
+.search .post-105 h3 a:focus,
+.search .parent-pageid-105 h3 a:focus {
+  color: #971e23;
+}
+.search .post-105 svg,
+.search .parent-pageid-105 svg {
+  background-color: #c1272d;
+}
+.search .post-107 h3,
+.search .parent-pageid-107 h3 {
+  color: #83bc3c;
+}
+.search .post-107 h3 a,
+.search .parent-pageid-107 h3 a {
+  color: #83bc3c;
+}
+.search .post-107 h3 a:hover,
+.search .parent-pageid-107 h3 a:hover,
+.search .post-107 h3 a:active,
+.search .parent-pageid-107 h3 a:active,
+.search .post-107 h3 a:focus,
+.search .parent-pageid-107 h3 a:focus {
+  color: #689530;
+}
+.search .post-107 svg,
+.search .parent-pageid-107 svg {
+  background-color: #83bc3c;
 }
 iframe.client-map {
   width: 100%;
@@ -1305,29 +1308,49 @@ iframe.client-map {
 .two-column .left {
   max-width: 30em;
 }
-.tshowcase-box-title {
+.page-id-6 .tshowcase {
+  margin-top: -2em;
+}
+.page-id-6 ul#ts-filter-nav li.ts-current-li,
+.page-id-6 ul#ts-enhance-filter-nav li.ts-current-li,
+.page-id-6 ul#ts-filter-nav li:hover,
+.page-id-6 ul#ts-enhance-filter-nav li:hover {
+  background-color: #2b85c4;
+  border-radius: .1em;
+}
+.page-id-6 ul#ts-filter-nav li,
+.page-id-6 ul#ts-enhance-filter-nav li {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  font-size: 1.5em;
+  padding-bottom: .4em;
+}
+.page-id-6 div.tshowcase-box-photo.ts-grayscale {
+  filter: none;
+}
+.page-id-6 .tshowcase-box-title {
   font-size: 1.5em;
   margin: .5em 0;
   color: #f7931e;
 }
-.tshowcase-single-position {
+.page-id-6 .tshowcase-single-position {
   font-weight: bold;
 }
-.tshowcase-single-position,
-.tshowcase-single-location,
-.tshowcase-single-website,
-.tshowcase-single-telephone {
+.page-id-6 .tshowcase-single-position,
+.page-id-6 .tshowcase-single-location,
+.page-id-6 .tshowcase-single-website,
+.page-id-6 .tshowcase-single-telephone {
   margin: .2em 0;
   padding-left: 1em;
   text-indent: -0.56em;
 }
-.tshowcase-single-freehtml {
+.page-id-6 .tshowcase-single-freehtml {
   margin-top: 1em;
   border-top: solid 0.2em #f5f5f5;
   font-style: italic;
   padding-top: .5em;
 }
-i.fa {
+.page-id-6 i.fa {
   color: #f7931e;
 }
 #home {

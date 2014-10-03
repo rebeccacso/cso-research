@@ -10,20 +10,13 @@
 
 <div class="img-gradient"></div>
 
-<?php if ( is_page() && $post->post_parent > 0 ) { 
-    echo "<h1>" . get_the_title($post->post_parent) . "</h1>
-<h2> &gt; " . get_the_title() . "</h2>";
-} else {
-	echo "<h1>" . get_the_title() . "</h1>";
-}; ?>
+<h1>Search</h1>
 
 
 
 </div>
 <div class="breadcrumbs">
-<?php if ( function_exists('yoast_breadcrumb') ) {
-yoast_breadcrumb('<p>','</p>');
-} ?>
+<p><a href="<?php home_url(); ?>">Home</a> / Search results for "<?php echo get_search_query(); ?>"</p>
 </div>
 
 <div class="sidebar-icon top"><a href="#sidebar">
@@ -34,11 +27,44 @@ yoast_breadcrumb('<p>','</p>');
 
 
 <div class="main">
- <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
- <h3><?php the_title(); ?></h3>
+
+<h2><?php _e( 'Search results for: "' . get_search_query() .'"' ); ?></h2>
+
+
+<form id="searchform" class="searchform" action="<?php bloginfo('url'); ?>" method="get" role="search">
+
+    <div>
+        <label class="screen-reader-text" for="s"><p>Search again:</p></label>
+        <input id="s" type="text" name="s" value="<?php echo get_search_query() ;?>"></input>
+        <input id="searchsubmit" type="submit" value="Search"></input>
+    </div>
+
+</form>
+<hr class="lt-blue"/>
+
+
+<?php
+//get ids of all subpages of Client Services (id=90)
+$cs_children = get_pages('child_of=90');
+$cs_children_ids = wp_list_pluck( $cs_children, 'ID' );
+
+$search_query = new WP_Query( array(
+	's' => get_search_query(),
+	'post__not_in' => $cs_children_ids
+	 )
+	 );
+
+if ( $search_query->have_posts() ) : while ( $search_query->have_posts() ) : $search_query->the_post(); ?>
+<div>
+<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+ <?php the_excerpt(); ?>
+  </div>
+
+
      <?php endwhile; else: ?>
-    <p><?php _e( 'Sorry, this page is not currently available.' ); ?></p>
+    <p><?php _e( 'Sorry, your search for "' . get_search_query() .'" returned no results.' ); ?></p>
     <?php endif; ?>
+    <?php wp_reset_postdata(); ?>
 </div>
 
 <div class="sidebar-icon bottom"><a href="#header">
@@ -48,34 +74,6 @@ yoast_breadcrumb('<p>','</p>');
 <aside id="sidebar">
 <div class="menus">
 
-
-<?php
-  $children = wp_list_pages('title_li=&child_of='.$post->ID.'&echo=0&depth=1'); //children of current page
-  $parent = wp_list_pages('title_li=&child_of='.$post->post_parent.'&echo=0&depth=1'); //children of parent page = siblings
-  
-  if ($children) { //if the page has children ?> 
-  
-  <nav>
-  	<ul>
-    	<li><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
-        	<ul>
-				<?php echo $children; ?>
-  			</ul>
-        </li>
-    </ul>
-  </nav>
-  
-  <?php } else {  // if the page does not have children ?>
-	<nav>
-    	<ul>
-        	<li><a href="<?php echo get_permalink($post->post_parent); ?>"><?php echo get_the_title($post->post_parent); ?></a>
-            	<ul>
-					<?php echo $parent; ?>
-    			</ul>            
-            </li>
-        </ul>
-    </nav>
-    <?php } ?>
 
 <?php get_sidebar( 'page-nav-2' ); ?>
 </div>
