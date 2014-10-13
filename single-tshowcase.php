@@ -18,9 +18,7 @@
 
 </div>
 <div class="breadcrumbs">
-<?php if ( function_exists('yoast_breadcrumb') ) {
-yoast_breadcrumb('<p>','</p>');
-} ?>
+<p><a href="<?php home_url(); ?>">Home</a> / <a href="<?php site_url(); ?>/company">Company</a> / <a href="<?php site_url(); ?>/company/team">Team</a> / <?php the_title(); ?></p>
 </div>
 
 <div class="sidebar-icon top"><a href="#sidebar">
@@ -31,6 +29,7 @@ yoast_breadcrumb('<p>','</p>');
 
 
 <div class="main">
+<h2><?php the_title(); ?></h2>
 <?php the_content(); ?>
 </div>
 

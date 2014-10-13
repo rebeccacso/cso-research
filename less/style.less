@@ -20,6 +20,7 @@ License URI:
 
 @import "css/normalize.css";
 @import "css/main.css";
+@import "css/wp-core.css";
 
 // Colors
 
@@ -64,6 +65,11 @@ h1, h2, h3, h4, h5, h6 {
 	h3 {
 		font-size:2em;
 		color:@cso-orange;
+	}
+	
+	h4 {
+		font-size:1.5em;
+		margin:0;
 	}
 }
 	
@@ -1227,7 +1233,7 @@ circle {
 }
 
 // Category (eNews)
-.category {
+.category, .tag {
 	.content {
 		margin-left:3em;
 		
@@ -1365,7 +1371,7 @@ iframe.client-map {
 
 
 //Team Plugin Styles
-.page {  // to make it specific enough to override defaults 
+.page, .single {  // to make it specific enough to override defaults 
 	
 	&.page-id-6 .tshowcase {
 		margin-top:-2em;
@@ -1431,6 +1437,10 @@ iframe.client-map {
 	.tshowcase-box-table .ts-square img {
 		margin-top: .2em;
 		margin-bottom: -.2em;
+	}
+	
+	.tshowcase-vcard-right {
+		margin-left:10em;
 	}
 }
 

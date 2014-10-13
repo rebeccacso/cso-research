@@ -9,7 +9,7 @@
 <file name="home.html" server="50.116.52.217//" local="130544167578744365" remote="130548540720000000" />
 <file name="index.html" server="50.116.52.217//" local="130544297287293451" remote="130546853090000000" />
 <file name="LICENSE.md" server="50.116.52.217//" local="130522474704067977" remote="130546761790000000" />
-<file name="style.css" server="50.116.52.217//" local="130572890553377151" remote="130572890580000000" />
+<file name="style.css" server="50.116.52.217//" local="130577132784736172" remote="130577133160000000" />
 <file name="tagline.svg" server="50.116.52.217//" local="130541574378663516" remote="130546761800000000" />
 <file name="index.php" server="50.116.52.217//" local="130555526145207955" remote="130555526180000000" />
 <file name="footer.php" server="50.116.52.217//" local="130566674197054475" remote="130566674350000000" />
@@ -20,10 +20,11 @@
 <file name="front-page.php" server="50.116.52.217//" local="130550359669338432" remote="130550359760000000" />
 <file name="page-client-services.php" server="50.116.52.217//" local="130571969062145659" remote="130571969080000000" />
 <file name="sidebar-client-svcs-info.php" server="50.116.52.217//" local="130553783339891869" remote="130553783640000000" />
-<file name="search.php" server="50.116.52.217//" local="130568281597969506" remote="130568281610000000" />
+<file name="search.php" server="50.116.52.217//" local="130577136826779014" remote="130577136790000000" />
 <file name="search-client-services.php" server="50.116.52.217//" local="130560721527292038" remote="130560721570000000" />
 <file name="page-enews.php" server="50.116.52.217//" local="130571102859655556" remote="130571102840000000" />
-<file name="category.php" server="50.116.52.217//" local="130577079052544186" remote="130577079060000000" />
-<file name="single-tshowcase.php" server="50.116.52.217//" local="130570847868226890" remote="130570848820000000" />
+<file name="category.php" server="50.116.52.217//" local="130577079052544186" remote="130577094980000000" />
+<file name="single-tshowcase.php" server="50.116.52.217//" local="130577134308874258" remote="130577134280000000" />
 <file name="page-svcs-main.php" server="50.116.52.217//" local="130572777670802042" remote="130572777800000000" />
+<file name="tag.php" server="50.116.52.217//" local="130577129628940188" remote="130577129610000000" />
 </dwsync>

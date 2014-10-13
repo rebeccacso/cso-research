@@ -56,8 +56,20 @@ $search_query = new WP_Query( array(
 
 if ( $search_query->have_posts() ) : while ( $search_query->have_posts() ) : $search_query->the_post(); ?>
 <div>
+
+<?php if($post->post_type == 'post') {?>
+<?php
+//grab the category for later use
+$category = get_the_category();
+?>
+<h3><a href="<?php home_url(); ?>/news/enews/<?php echo $category[0]->slug; ?>#<?php echo $post->post_name; ?>"><?php the_title(); ?></a></h3>
+<?php the_excerpt(); ?>
+<?php } else { ?>
+
 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
  <?php the_excerpt(); ?>
+ 
+ <?php } ?>
   </div>
 
 
