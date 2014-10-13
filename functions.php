@@ -163,6 +163,18 @@ function cso_div_shortcode( $atts, $content = null ) {
 add_shortcode( 'div', 'cso_div_shortcode' );
 
 
+function cso_top_shortcode() {
+	
+	$file = locate_template('img/icons/inline-chevron-up-circle.svg.php');
+	
+	ob_start();
+    include $file;
+    $template = ob_get_contents();
+    ob_end_clean();
+    return '<div class="top group"><a href="#content">'.$template.'Back to top</a></div>';
+}
+add_shortcode('top', 'cso_top_shortcode');
+
 // Custom Search Results Page for Client Services
 
  function cso_template_chooser($template)   

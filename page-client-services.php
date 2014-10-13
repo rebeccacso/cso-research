@@ -13,7 +13,7 @@ Template Name: Client Services Template
 
 <?php $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
 
-<div id="title-bar" style="background-image:url('<?php echo $image; ?>')">
+<div id="title-bar" style="background-image:url('http://i.istockimg.com/file_thumbview_approve/21812452/2/stock-photo-21812452-hand-pushing-blue-solution-keyboard-button.jpg')">
 
 <div class="img-gradient"></div>
 

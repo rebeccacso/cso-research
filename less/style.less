@@ -164,6 +164,40 @@ hr.lt-blue {
 	margin-left:4em;
 }
 
+ol li ol {
+	list-style:none;
+	
+	li:before {
+		content:"- ";
+		margin-left: -.6em;
+	}
+}
+
+.top {
+	float:right;
+	height: 5em;
+	margin-left: 1em;
+	
+	svg {
+		width:1em;
+		height:1em;
+		fill:@cso-blue;
+		padding-right: .2em;
+		margin-bottom: -.2em;
+	}
+	
+	@media @breakpoint-4 {
+		float:none;
+		background-color:@cso-ltblue;
+		padding:.2em;
+		height:auto;
+		width:6.5em;
+		margin-left:calc(~"100% - 7em");
+	}
+}
+
+
+
 /*clearfix http://css-tricks.com/snippets/css/clear-fix/ */
 .group:after {
   content: "";
@@ -260,6 +294,34 @@ input[type="submit"] {
 .demo {
 	.button-orange;
 				
+}
+
+// File Type Icons
+a[href*="screencast"],
+a[href$=".pdf"],
+a[href$=".doc"],
+a[href$=".xls"],
+a[href$=".csv"] {
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size:1em;
+	padding-right:1.2em;
+}
+
+a[href*="screencast.com"] {
+	background-image: url(img/icons/video-icon.svg);
+}
+
+a[href$=".pdf"] { 
+	background-image: url(img/icons/pdf-icon.svg);
+}
+
+a[href$=".doc"] { 
+	background-image: url(img/icons/doc-icon.svg);
+}
+
+a[href$=".xls"], a[href$=".csv"] { 
+	background-image: url(img/icons/spreadsheet-icon.svg);
 }
 	
 // Logo
@@ -596,7 +658,7 @@ circle {
 			}
 		}
 		
-		.page-parent:not(.page-child) & & h1 {
+		.page:not(.page-child) & & h1 {
 			line-height:1em;
 			vertical-align:middle;
 			margin-top: 0.67em;
@@ -1191,8 +1253,15 @@ circle {
 		li.page-item-126:before {
 			content:"> ";
 		}
+	}			
+}
+
+.enews-nav {
+	font-size:1.5em;
+	margin-top:2em;
+	.right {
+		float:right;
 	}
-			
 }
 
 // Search page 
@@ -1296,12 +1365,12 @@ iframe.client-map {
 
 
 //Team Plugin Styles
-
-.page-id-6 {
-	.tshowcase {
+.page {  // to make it specific enough to override defaults 
+	
+	&.page-id-6 .tshowcase {
 		margin-top:-2em;
 	}
-
+	
 	ul#ts-filter-nav li.ts-current-li, ul#ts-enhance-filter-nav li.ts-current-li,
 	ul#ts-filter-nav li:hover, ul#ts-enhance-filter-nav li:hover {
 		background-color:@cso-blue;
@@ -1333,8 +1402,8 @@ iframe.client-map {
 	.tshowcase-single-website,
 	.tshowcase-single-telephone {
 		margin:.2em 0;
-		padding-left:1em;
-		text-indent:-.56em;
+		text-indent: -0.75em;
+		padding-left: 1.5em;
 	}
 	
 	.tshowcase-single-freehtml {
@@ -1346,8 +1415,23 @@ iframe.client-map {
 	
 	i.fa {
 		color:@cso-orange;
+		padding-right:.3em;
+		
+		&.fa-graduation-cap {
+			padding-right:.2em;
+			margin-left: -0.1em;
+			font-size: 0.9em;
+		}
 	}
-
+	
+	tr.ts-align-left td:nth-child(2) {
+		font-size: 1.2em;
+		color: @cso-blue;
+	}
+	.tshowcase-box-table .ts-square img {
+		margin-top: .2em;
+		margin-bottom: -.2em;
+	}
 }
 
 

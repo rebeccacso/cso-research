@@ -45,23 +45,69 @@ yoast_breadcrumb('<p>','</p>');
 <?php the_content(); ?>
 
 <?php 
+// Get Option_Value column
+$enews_unixes = $wpdb->get_col("SELECT option_value FROM wp_4_options WHERE option_name LIKE 'taxonomy_%'");
 
-$enews_month = get_terms('category','exclude=1&orderby=slug&order=DESC&number=1');
-$latest_enews_slug = $enews_month[0]->slug;
-$latest_enews_name = $enews_month[0]->name; 
-$latest_enews_id = $enews_month[0]->term_id; 
+// Create an array of unserialized eNews Edition values
+$unixes = array();
+foreach ($enews_unixes as $unix) 
+ { 
+ $data = unserialize($unix);
+ $unixes[] = $data['enews_edition']; 
+ };
+ 
+// Sory the array
 
-	$previous_enews_slug = $enews_month[0]->slug-1;
-	$previous_enews_term = get_term_by('slug', $previous_enews_slug, 'category');
-	$previous_enews_name = $previous_enews_term->name;
+arsort($unixes);
 
+// Grab the first value of the array
+
+$recent_enews_unix = reset($unixes);
+ 
+// Most recent edition of the eNews
+
+$recent_edition_cat = $wpdb->get_var("SELECT option_name FROM wp_4_options WHERE option_value LIKE '%$recent_enews_unix%' ");
+$recent_edition_cat_id = str_replace("taxonomy_", "", $recent_edition_cat); //THIS is the ID of the previous category, based on the unix
+$recent_edition_cat = get_category($recent_edition_cat_id);
+$recent_edition_cat_slug = $recent_edition_cat->slug;
+$recent_edition_cat_name = $recent_edition_cat->name;
+
+// Previous Edition UNIX
+
+$previous_enews_edition_unix = strtotime("-1 month", $recent_enews_unix);
+
+
+// Previous Edition Category
+
+$previous_edition_cat = $wpdb->get_var("SELECT option_name FROM wp_4_options WHERE option_value LIKE '%$previous_enews_edition_unix%'");
+
+
+// Check if this edition exists
+
+if (empty($previous_edition_cat)) {
+    $previous_enews_edition_unix2 = strtotime("-2 month", $recent_enews_unix);
+	
+	// Previous Edition Category - 2 months
+
+	$previous_edition_cat = $wpdb->get_var("SELECT option_name FROM wp_4_options WHERE option_value LIKE '%$previous_enews_edition_unix2%' ");
+	$previous_edition_cat_id = str_replace("taxonomy_", "", $previous_edition_cat); //THIS is the ID of the previous category, based on the unix
+	$previous_edition_cat = get_category($previous_edition_cat_id);
+	$previous_edition_cat_slug = $previous_edition_cat->slug;
+	$previous_edition_cat_name = $previous_edition_cat->name;
+} else {
+
+	$previous_edition_cat_id = str_replace("taxonomy_", "", $previous_edition_cat); //THIS is the ID of the previous category, based on the unix
+	$previous_edition_cat = get_category($previous_edition_cat_id);
+	$previous_edition_cat_slug = $previous_edition_cat->slug;
+	$previous_edition_cat_name = $previous_edition_cat->name;
+}
 ?>
 
-<h2><?php print $latest_enews_name; ?></h2>
+<h2><?php echo $recent_edition_cat_name; ?></h2>
 
 <?php
 
-$enews_query = new WP_query( 'category_name='.$latest_enews_slug );
+$enews_query = new WP_query( 'category_name='.$recent_edition_cat_slug );
 
 if ( $enews_query->have_posts() ) : while ( $enews_query->have_posts() ) : $enews_query->the_post(); ?>      
 <h3><?php the_title(); ?></h3>       
@@ -73,8 +119,9 @@ if ( $enews_query->have_posts() ) : while ( $enews_query->have_posts() ) : $enew
 	
 	wp_reset_postdata(); ?>
 
-
-<h2><a href="<?php echo home_url(); ?>/news/enews/<?php print $previous_enews_slug; ?>">< <?php print $previous_enews_name; ?></a></h2>
+<div class="enews-nav">
+<a href="<?php echo home_url(); ?>/news/enews/<?php print $previous_edition_cat_slug; ?>"><button class="button-blue left">&lt; <?php print $previous_edition_cat_name; ?></button></a>
+</div>
 </div>
 
 <div class="sidebar-icon bottom"><a href="#header">
