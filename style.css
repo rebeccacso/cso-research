@@ -144,6 +144,10 @@ ol li ol li:before {
   content: "- ";
   margin-left: -0.6em;
 }
+li img,
+li img.alignnone {
+  margin-left: -0.8em;
+}
 .top {
   float: right;
   height: 5em;

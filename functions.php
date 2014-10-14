@@ -175,6 +175,70 @@ function cso_top_shortcode() {
 }
 add_shortcode('top', 'cso_top_shortcode');
 
+
+function cso_team_im_shortcode() {
+	
+
+	$args = array(
+		'post_type'		=> 'tshowcase',
+		'meta_query'	=> array(
+				array(
+				'key'		=>	'_tsposition',		
+				'value'		=> 'implementation',
+				'compare'	=> 'LIKE',
+				)
+		)
+	);
+	
+	$im_query = get_posts( $args );
+	
+	$im_array = array();
+	foreach ($im_query as $im) {
+		$im_array[]=$im->ID;
+	};
+
+	$im_ids  = implode(', ', $im_array);
+	
+return build_tshowcase('none','0',$im_ids,'3services','inactive','table','img-square,text-left,odd-colored','photo,position,social,email,telephone,smallicons,name','false','','true');
+}
+
+add_shortcode('team-im', 'cso_team_im_shortcode');
+
+function cso_team_crm_shortcode() {
+	
+
+	$args = array(
+		'post_type'		=> 'tshowcase',
+		'meta_query'	=> array(
+				'relation' => 'OR',
+				array(
+					'key'		=>	'_tsposition',		
+					'value'		=> 'client relations manager',
+					'compare'	=> 'LIKE',
+					),
+				array(
+				'key'		=>	'_tsposition',		
+				'value'		=> 'director of client services',
+				'compare'	=> 'LIKE',
+				),
+		),
+	);
+	
+	$crm_query = get_posts( $args );
+	
+	$crm_array = array();
+	foreach ($crm_query as $crm) {
+		$crm_array[]=$crm->ID;
+	};
+
+	$crm_ids  = implode(', ', $crm_array);
+	
+return build_tshowcase('none','0',$crm_ids,'3services','inactive','table','img-square,text-left,odd-colored','photo,position,social,email,telephone,smallicons,name','false','','true');
+}
+
+add_shortcode('team-crm', 'cso_team_crm_shortcode');
+
+
 // Custom Search Results Page for Client Services
 
  function cso_template_chooser($template)   
