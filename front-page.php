@@ -17,7 +17,7 @@
 <?php get_template_part('img/inline', 'product-cso.svg'); ?>
 </a>
 <h3><a href="#system">The CSO System</a></h3>
-<p>A career services management tool that provides solutions for career services, co-op and internship offices.</p>
+<p>An online enterprise management system for career services, co-op and internship offices.</p>
 </div>
 
 <div class="overview-item">
@@ -49,7 +49,7 @@
 <div class="bg-image general active">
 <p>"We love CSO - they are easy to work with, design great products, and are the perfect go-to for fun parties."<br /><span>- John Doe, State University</span></p>
 </div>
-
+<div class="details-wrapper">
 <div id="system" class="details">
   <div class="description">
     <h2>The CSO System</h2>
@@ -69,12 +69,14 @@
     <p><a href="#">CSO Support</a></p></div>
   </div>
 </div>
+</div>
   <div class="top">
   <a href="#header"><?php get_template_part('img/icons/inline', 'chevron-up-circle.svg'); ?> <p>back to top</p></a>
   </div>
 <div class="bg-image system">
 <p>"CSO helps us automate every part of our career services process. And their service is the best!"<br /><span>- Jane Smith, State University, School of Information</span></p>
 </div>
+<div class="details-wrapper">
 <div id="outcomes" class="details right">
 <div class="description">
 <h2>The Outcomes Survey</h2>
@@ -93,13 +95,14 @@
 <p><a href="#">Request a Demo</a></p></div>
 </div>
 </div>
+</div>
 <div class="top">
   <a href="#header"><?php get_template_part('img/icons/inline', 'chevron-up-circle.svg'); ?> <p>back to top</p></a>
   </div>
 <div class="bg-image outcomes">
 <p>"The Outcomes Survey has been a life-saver - a turn-key solution for gathering valid and reliable data? I wish everything were this easy!"<br /><span>- Baby Ruth, Private CSO University</span></p>
 </div>
-
+<div class="details-wrapper">
 <div id="connect" class="details">
 <div class="description">
 <h2>CSO Connect</h2>
@@ -118,13 +121,14 @@
 <p><a href="#">Sign Up for Free</a></p></div>
 </div>
 </div>
+</div>
 <div class="top">
   <a href="#header"><?php get_template_part('img/icons/inline', 'chevron-up-circle.svg'); ?> <p>back to top</p></a>
   </div>
 <div class="bg-image connect">
 <p>"Our office uses CSO Connect every day. We can easily post to multiple schools at once, saving us both time and money!"<br /><span>- Charles Stanley, Enterprise Company</span></p>
 </div>
-
+<div class="details-wrapper">
 <div id="coach" class="details right">
 <div class="description">
 <h2>The Campus Career Coach</h2>
@@ -141,6 +145,7 @@
 <p><a href="#">Meet the Coaches</a></p></div>
 <div class="item"><a href="#"><?php get_template_part('img/icons/inline', 'mail.svg'); ?></a>
 <p><a href="#">Subscribe</a></p></div>
+</div>
 </div>
 </div>
 <div class="top">

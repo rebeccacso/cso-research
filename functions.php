@@ -1,5 +1,7 @@
 <?php
 
+add_filter('widget_text', 'do_shortcode');
+
 /* TITLE */
 
 function cso_filter_wp_title( $currenttitle, $sep, $seplocal ) {
@@ -43,6 +45,10 @@ $cso_page_content_sidebar = array(
 	'name'			=> 'Page Content Sidebar',
 	'id'			=> 'page-content',
 	'description'	=> 'A place for page widgets, selected per page',
+	'before_widget'	=> '<div class="widget-item">',
+	'after_widget'	=> '</div>',
+	'before_title'	=> '<h4 class="widgettitle">',
+	'after_title'	=> '</h4>'
 	);
 	
 register_sidebar( $cso_page_content_sidebar );
@@ -56,6 +62,16 @@ $cso_client_svcs_info_box = array(
 	);
 	
 register_sidebar( $cso_client_svcs_info_box );
+
+$cso_tshowcase_nav = array(
+	'name'			=> 'Team Showcase Single',
+	'id'			=> 'tshowcase-nav',
+	'description'	=> 'Navigation for Team Showcase Single Entry page.',
+	'before_widget' => '<nav>',
+	'after_widget' 	=> '</nav>',
+	);
+	
+register_sidebar( $cso_tshowcase_nav );
 	
 /* MENUS */
 
@@ -98,6 +114,8 @@ function the_slug( $id=null ){
 }
 
 /* SHORTCODES */
+
+
 
 // https://github.com/halfempty/template-part-shortcode
 
@@ -171,7 +189,7 @@ function cso_top_shortcode() {
     include $file;
     $template = ob_get_contents();
     ob_end_clean();
-    return '<div class="top group"><a href="#content">'.$template.'Back to top</a></div>';
+    return '<div class="jump-top group"><a href="#content">'.$template.'Back to top</a></div>';
 }
 add_shortcode('top', 'cso_top_shortcode');
 
@@ -259,6 +277,35 @@ add_action('init', 'cso_page_excerpt');
 
 function cso_page_excerpt() {
 	add_post_type_support( 'page', 'excerpt' );
+}
+
+/* PAGINATION */
+
+function cso_paginate() {
+	global $paged, $wp_query, $search_query, $combined_query;
+	if ( $search_query ) {
+		$total = $search_query->max_num_pages;
+	} elseif ($combined_query) {
+		$total = $combined_query->max_num_pages;
+	} else {
+		$total = $wp_query->max_num_pages;
+	}
+	$abignum = 999999999;
+	$args = array(
+		'base'		=> str_replace( $abignum, '%#%', esc_url( get_pagenum_link( $abignum ) ) ),
+		'format'	=> '?paged=%#%',
+		'current'	=> max( 1, get_query_var( 'paged' ) ),
+		'total'		=> $total,
+		'show_all'	=> False,
+		'end_size'	=> 2,
+		'mid_size'	=> 2,
+		'prev_next'	=> True,
+		'prev_text'	=> __( '&lt;' ),
+		'next_text'	=> __( '&gt;' ),
+		'type'		=> 'list'
+	);
+	
+	echo paginate_links( $args );
 }
 
 

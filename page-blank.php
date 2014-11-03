@@ -1,23 +1,35 @@
+<?php
+/*
+Template Name: Blank
+*/
+?>
+
 <?php get_header(); ?>
 
 <!--CONTENT-->
 <div id="content">
  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
+<?php $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
 
-<div id="title-bar" style="background-image:url('[insert url here]')">
+<div id="title-bar" style="background-image:url('<?php echo $image; ?>')">
 
 <div class="img-gradient"></div>
 
-<h1>Team</h1>
-<h2> &gt; <?php the_title(); ?></h2>
-
+<?php if ( is_page() && $post->post_parent > 0 ) { 
+    echo "<h1>" . get_the_title($post->post_parent) . "</h1>
+<h2> &gt; " . get_the_title() . "</h2>";
+} else {
+	echo "<h1>" . get_the_title() . "</h1>";
+}; ?>
 
 
 
 </div>
 <div class="breadcrumbs">
-<p><a href="<?php home_url(); ?>">Home</a> / <a href="<?php site_url(); ?>/company">Company</a> / <a href="<?php site_url(); ?>/company/team">Team</a> / <?php the_title(); ?></p>
+<?php if ( function_exists('yoast_breadcrumb') ) {
+yoast_breadcrumb('<p>','</p>');
+} ?>
 </div>
 
 <div class="sidebar-icon top"><a href="#sidebar">
@@ -28,7 +40,6 @@
 
 
 <div class="main">
-<h2><?php the_title(); ?></h2>
 <?php the_content(); ?>
 </div>
 
@@ -39,10 +50,7 @@
 <aside id="sidebar">
 <div class="menus">
 
-
-<?php get_sidebar( 'tshowcase-nav' ); ?>
-
-
+<?php get_sidebar( 'page-nav-2' ); ?>
 </div>
 
 <?php if ( is_active_sidebar( 'page-content' ) ) : ?>

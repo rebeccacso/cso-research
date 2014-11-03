@@ -4,9 +4,7 @@
 <div id="content">
 
 
-<?php $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
-
-<div id="title-bar" style="background-image:url('<?php echo $image; ?>')">
+<div id="title-bar" style="background-image:url('http://csoresearch.thecampuscareercoach.com/wp-content/uploads/sites/4/2014/11/non-model2_20_2245_.jpg')">
 
 <div class="img-gradient"></div>
 
@@ -48,9 +46,26 @@
 $cs_children = get_pages('child_of=90');
 $cs_children_ids = wp_list_pluck( $cs_children, 'ID' );
 
+//get ids of all subpages of Services Main (id=304)
+$services_children = get_pages('child_of=304');
+$services_children_ids = wp_list_pluck( $services_children, 'ID' );
+
+$unwanted_children_ids = array_merge($cs_children_ids, $services_children_ids );
+
+// http://devotepress.com/wordpress-coding/wordpress-custom-loop-pagination-2
+
+// Global Variables
+global $wp_query, $paged;
+
+
+// Paged Parameter
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
 $search_query = new WP_Query( array(
 	's' => get_search_query(),
-	'post__not_in' => $cs_children_ids
+	'post__not_in' => $unwanted_children_ids,
+	'post_type' => array('page', 'post', 'tshowcase'),
+	'paged'		=> $paged
 	 )
 	 );
 
@@ -73,10 +88,20 @@ $category = get_the_category();
   </div>
 
 
-     <?php endwhile; else: ?>
+
+     <?php endwhile; ?>
+     
+            <?php cso_paginate(); ?>
+            
+     
+     
+     <?php else: ?>
     <p><?php _e( 'Sorry, your search for "' . get_search_query() .'" returned no results.' ); ?></p>
     <?php endif; ?>
-    <?php wp_reset_postdata(); ?>
+<?php wp_reset_postdata(); ?>
+    
+    
+ 
 </div>
 
 <div class="sidebar-icon bottom"><a href="#header">

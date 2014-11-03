@@ -13,7 +13,7 @@ Template Name: Client Services Template
 
 <?php $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
 
-<div id="title-bar" style="background-image:url('http://i.istockimg.com/file_thumbview_approve/21812452/2/stock-photo-21812452-hand-pushing-blue-solution-keyboard-button.jpg')">
+<div id="title-bar" style="background-image:url('http://csoresearch.thecampuscareercoach.com/wp-content/uploads/sites/4/2014/10/service-copy.jpg')">
 
 <div class="img-gradient"></div>
 
@@ -59,6 +59,17 @@ yoast_breadcrumb('<p>','</p>');
 <aside id="sidebar">
 <div class="menus">
 
+<form id="searchform" class="searchform" action="<?php bloginfo('url'); ?>" method="get" role="search">
+
+    <div>
+        <label class="screen-reader-text" for="s"></label>
+        <input id="s" type="text" name="s" value=""></input>
+        <input id="searchsubmit" type="submit" value="Search"></input>
+        <input type="hidden" name="search" value="client-services" />
+    </div>
+
+</form>
+
 <?php
 	$cso_client_svcs = array(
 		'theme_location' => 'client-svcs',
@@ -70,20 +81,6 @@ yoast_breadcrumb('<p>','</p>');
 <?php wp_nav_menu( $cso_client_svcs ); ?>
 
 </div>
-
-
-
-		<div class="widgets">
-<form id="searchform" class="searchform" action="<?php bloginfo('url'); ?>" method="get" role="search">
-
-    <div>
-        <label class="screen-reader-text" for="s"></label>
-        <input id="s" type="text" name="s" value=""></input>
-        <input id="searchsubmit" type="submit" value="Search"></input>
-        <input type="hidden" name="search" value="client-services" />
-    </div>
-
-</form></div>
 
 
 </aside>
