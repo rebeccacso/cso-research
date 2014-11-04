@@ -92,8 +92,8 @@ wp_list_categories( $args ); ?>
 <?php get_sidebar( 'page-nav-2' ); ?>
 </div>
 
-<?php if ( is_active_sidebar( 'page-content' ) ) : ?>
-		<div class="widgets"><?php dynamic_sidebar( 'page-content' ); ?></div>
+<?php if ( is_active_sidebar( 'enews-widgets' ) ) : ?>
+		<div class="widgets"><?php dynamic_sidebar( 'enews-widgets' ); ?></div>
 <?php endif; ?>
 
 

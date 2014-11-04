@@ -728,6 +728,7 @@ circle {
   color: #999999;
   font-size: .8em;
   margin-bottom: 1.5em;
+  clear: both;
 }
 #content .sidebar-icon a {
   color: #999999;
@@ -792,8 +793,8 @@ circle {
   height: auto;
 }
 #content #sidebar {
-  width: 10em;
-  margin: -0.3em 1.875em 0 30px;
+  width: 12em;
+  margin: -0.3em 2.25em 0 30px;
   vertical-align: top;
   color: #2b85c4;
   float: left;
@@ -804,6 +805,7 @@ circle {
 #content #sidebar .widgets {
   border-top: dotted 0.2em #f5f5f5;
   margin-top: .7em;
+  padding-top: .7em;
 }
 #content #sidebar .widgets h4.widgettitle {
   font-family: 'Roboto', sans-serif;
@@ -1199,7 +1201,7 @@ circle {
   background-color: #2b85c4;
 }
 .page-template-page-client-services-php #content #sidebar ul.menu {
-  font-size: .85em;
+  font-size: 1em;
 }
 .page-template-page-client-services-php #content #sidebar nav.menu-client-services-container ul li ul li.current_page_item:before {
   content: "";
@@ -1484,6 +1486,12 @@ circle {
 .tag .content .tags span:hover {
   background-color: #dcdcdc;
 }
+@media screen and (max-width: 31em) {
+  .category .content,
+  .tag .content {
+    margin-left: 0;
+  }
+}
 .category #sidebar li.page-item-126:before,
 .tag #sidebar li.page-item-126:before {
   content: "> ";
@@ -1494,6 +1502,18 @@ circle {
 }
 .enews-nav .right {
   float: right;
+}
+@media screen and (max-width: 31em) {
+  .enews-nav button,
+  .enews-nav button.right {
+    float: none;
+    clear: both;
+    width: 10em;
+    margin-bottom: .5em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 .search #content .main h2,
 .search #content .main h3 {
@@ -1629,6 +1649,59 @@ iframe.client-map {
 .page-id-472 #home .overview {
   background-color: transparent;
 }
+button.enews {
+  width: 100%;
+  font-size: 1.3em;
+  text-align: left;
+  padding-bottom: .2em;
+  margin: 1em 0;
+}
+button.enews svg {
+  fill: #ffffff;
+  width: 2em;
+  height: 2em;
+  float: left;
+  padding-right: 0.7em;
+  margin-top: 0.4em;
+  padding-left: .3em;
+}
+#cboxContent #cboxLoadedContent {
+  background-color: #f5f5f5;
+}
+.tagcloud {
+  line-height: 1em;
+  text-align: center;
+  color: #f7931e;
+  margin-bottom: 2em;
+}
+.tagcloud a {
+  color: #f7931e;
+}
+.tagcloud a:hover,
+.tagcloud a:active,
+.tagcloud a:focus {
+  color: #da7908;
+}
+ul.tweets {
+  list-style: none;
+  padding-left: 0;
+  color: #333333;
+  font-size: .8em;
+}
+ul.tweets li {
+  margin-bottom: 1em;
+}
+ul.tweets li em a {
+  color: #999999;
+}
+ul.tweets li em a a {
+  color: #999999;
+}
+ul.tweets li em a a:hover,
+ul.tweets li em a a:active,
+ul.tweets li em a a:focus {
+  color: #666666;
+}
 .mg_filter {
   margin-top: 1em;
 }
@@ -1698,85 +1771,105 @@ span.expand:hover {
   background-color: #dcdcdc;
 }
 .page.page-id-6 .tshowcase,
-.single.page-id-6 .tshowcase {
+.single.page-id-6 .tshowcase,
+.archive.page-id-6 .tshowcase {
   margin-top: -2em;
 }
 .page ul#ts-filter-nav li.ts-current-li,
 .single ul#ts-filter-nav li.ts-current-li,
+.archive ul#ts-filter-nav li.ts-current-li,
 .page ul#ts-enhance-filter-nav li.ts-current-li,
 .single ul#ts-enhance-filter-nav li.ts-current-li,
+.archive ul#ts-enhance-filter-nav li.ts-current-li,
 .page ul#ts-filter-nav li:hover,
 .single ul#ts-filter-nav li:hover,
+.archive ul#ts-filter-nav li:hover,
 .page ul#ts-enhance-filter-nav li:hover,
-.single ul#ts-enhance-filter-nav li:hover {
+.single ul#ts-enhance-filter-nav li:hover,
+.archive ul#ts-enhance-filter-nav li:hover {
   background-color: #2b85c4;
   border-radius: .1em;
 }
 .page ul#ts-filter-nav li,
 .single ul#ts-filter-nav li,
+.archive ul#ts-filter-nav li,
 .page ul#ts-enhance-filter-nav li,
-.single ul#ts-enhance-filter-nav li {
+.single ul#ts-enhance-filter-nav li,
+.archive ul#ts-enhance-filter-nav li {
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 300;
   font-size: 1.5em;
   padding-bottom: .4em;
 }
 .page div.tshowcase-box-photo.ts-grayscale,
-.single div.tshowcase-box-photo.ts-grayscale {
+.single div.tshowcase-box-photo.ts-grayscale,
+.archive div.tshowcase-box-photo.ts-grayscale {
   filter: none;
 }
 .page .tshowcase-box-title,
-.single .tshowcase-box-title {
+.single .tshowcase-box-title,
+.archive .tshowcase-box-title {
   font-size: 1.5em;
   margin: .5em 0;
   color: #f7931e;
 }
 .page .tshowcase-single-position,
-.single .tshowcase-single-position {
+.single .tshowcase-single-position,
+.archive .tshowcase-single-position {
   font-weight: bold;
 }
 .page .tshowcase-single-position,
 .single .tshowcase-single-position,
+.archive .tshowcase-single-position,
 .page .tshowcase-single-location,
 .single .tshowcase-single-location,
+.archive .tshowcase-single-location,
 .page .tshowcase-single-website,
 .single .tshowcase-single-website,
+.archive .tshowcase-single-website,
 .page .tshowcase-single-telephone,
-.single .tshowcase-single-telephone {
+.single .tshowcase-single-telephone,
+.archive .tshowcase-single-telephone {
   margin: .2em 0;
   text-indent: -0.75em;
   padding-left: 1.5em;
 }
 .page .tshowcase-single-freehtml,
-.single .tshowcase-single-freehtml {
+.single .tshowcase-single-freehtml,
+.archive .tshowcase-single-freehtml {
   margin-top: 1em;
   border-top: solid 0.2em #f5f5f5;
   font-style: italic;
   padding-top: .5em;
 }
 .page i.fa,
-.single i.fa {
+.single i.fa,
+.archive i.fa {
   color: #f7931e;
   padding-right: .3em;
 }
 .page i.fa.fa-graduation-cap,
-.single i.fa.fa-graduation-cap {
+.single i.fa.fa-graduation-cap,
+.archive i.fa.fa-graduation-cap {
   padding-right: .2em;
   margin-left: -0.1em;
   font-size: 0.9em;
 }
 .page tr.ts-align-left td:nth-child(2),
-.single tr.ts-align-left td:nth-child(2) {
+.single tr.ts-align-left td:nth-child(2),
+.archive tr.ts-align-left td:nth-child(2) {
   font-size: 1.2em;
   color: #2b85c4;
 }
 .page .tshowcase-box-table .ts-square img,
-.single .tshowcase-box-table .ts-square img {
+.single .tshowcase-box-table .ts-square img,
+.archive .tshowcase-box-table .ts-square img {
   margin-top: .2em;
   margin-bottom: -0.2em;
 }
 .page .tshowcase-vcard-right,
-.single .tshowcase-vcard-right {
+.single .tshowcase-vcard-right,
+.archive .tshowcase-vcard-right {
   margin-left: 10em;
 }
 .main .wFormContainer {

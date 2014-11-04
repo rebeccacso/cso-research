@@ -3,10 +3,7 @@
 <!--CONTENT-->
 <div id="content">
 
-
-<?php $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
-
-<div id="title-bar" style="background-image:url('<?php echo $image; ?>')">
+<div id="title-bar" style="background-image:url('http://csoresearch.thecampuscareercoach.com/wp-content/uploads/sites/4/2014/11/BDSC05357.jpg')">
 
 <div class="img-gradient"></div>
 
@@ -48,7 +45,7 @@ $previous_enews_edition_unix = strtotime("-1 month", $enews_edition_unix);
 $previous_edition_cat = $wpdb->get_var("SELECT option_name FROM wp_4_options WHERE option_value LIKE '%$previous_enews_edition_unix%'");
 
 
-// Check if this edition exists
+// Check if this edition exists, and if not...
 
 if (empty($previous_edition_cat)) {
     $previous_enews_edition_unix2 = strtotime("-2 month", $enews_edition_unix);
@@ -76,7 +73,7 @@ $next_enews_edition_unix = strtotime("+1 month", $enews_edition_unix);
 
 $next_edition_cat = $wpdb->get_var("SELECT option_name FROM wp_4_options WHERE option_value LIKE '%$next_enews_edition_unix%' ");
 
-// Check if this edition exists
+// Check if this edition exists, and if not...
 
 if (empty($next_edition_cat)) {
     $next_enews_edition_unix2 = strtotime("+2 month", $enews_edition_unix);
@@ -116,13 +113,15 @@ if (empty($next_edition_cat)) {
 </div>
 <div class="enews-nav">
 
-<?php if (!empty($previous_edition_cat_slug)) { ?>
-<a href="<?php echo home_url(); ?>/news/enews/<?php print $previous_edition_cat_slug; ?>"><button class="button-blue left">&lt; <?php print $previous_edition_cat_name; ?></button></a>
+<?php if (!empty($next_edition_cat_slug)) { ?>
+<a href="<?php echo home_url(); ?>/news/enews/<?php print $next_edition_cat_slug; ?>"><button class="button-blue right group"><?php print $next_edition_cat_name; ?> &gt;</button></a>
 <?php } ?>
 
-<?php if (!empty($next_edition_cat_slug)) { ?>
-<a href="<?php echo home_url(); ?>/news/enews/<?php print $next_edition_cat_slug; ?>"><button class="button-blue right"><?php print $next_edition_cat_name; ?> &gt;</button></a>
+<?php if (!empty($previous_edition_cat_slug)) { ?>
+<a href="<?php echo home_url(); ?>/news/enews/<?php print $previous_edition_cat_slug; ?>"><button class="button-blue left group">&lt; <?php print $previous_edition_cat_name; ?></button></a>
 <?php } ?>
+
+
 </div>
 </div>
 
@@ -146,31 +145,88 @@ if (empty($next_edition_cat)) {
     </ul>
   </nav>        
     
+<?php
+// For Left Nav
+
+	//Previous Month - 3
+
+	$previous3_enews_edition_unix = strtotime("-3 month", $enews_edition_unix);
+	$previous3_edition_cat = $wpdb->get_var("SELECT option_name FROM wp_4_options WHERE option_value LIKE '%$previous3_enews_edition_unix%' ");
+	$previous3_edition_cat_id = str_replace("taxonomy_", "", $previous3_edition_cat); //THIS is the ID of the previous category, based on the unix
+	$previous3_edition_cat = get_category($previous3_edition_cat_id);
+	$previous3_edition_cat_slug = $previous3_edition_cat->slug;
+	$previous3_edition_cat_name = $previous3_edition_cat->name;
+
+	//Previous Month - 2
+
+	$previous2_enews_edition_unix = strtotime("-2 month", $enews_edition_unix);
+	$previous2_edition_cat = $wpdb->get_var("SELECT option_name FROM wp_4_options WHERE option_value LIKE '%$previous2_enews_edition_unix%' ");
+	$previous2_edition_cat_id = str_replace("taxonomy_", "", $previous2_edition_cat); //THIS is the ID of the previous category, based on the unix
+	$previous2_edition_cat = get_category($previous2_edition_cat_id);
+	$previous2_edition_cat_slug = $previous2_edition_cat->slug;
+	$previous2_edition_cat_name = $previous2_edition_cat->name;
+	
+	//Previous Month - 1
+
+	$previous1_enews_edition_unix = strtotime("-1 month", $enews_edition_unix);
+	$previous1_edition_cat = $wpdb->get_var("SELECT option_name FROM wp_4_options WHERE option_value LIKE '%$previous1_enews_edition_unix%' ");
+	$previous1_edition_cat_id = str_replace("taxonomy_", "", $previous1_edition_cat); //THIS is the ID of the previous category, based on the unix
+	$previous1_edition_cat = get_category($previous1_edition_cat_id);
+	$previous1_edition_cat_slug = $previous1_edition_cat->slug;
+	$previous1_edition_cat_name = $previous1_edition_cat->name;
+	
+	
+	//Next Month - 3
+
+	$next3_enews_edition_unix = strtotime("+3 month", $enews_edition_unix);
+	$next3_edition_cat = $wpdb->get_var("SELECT option_name FROM wp_4_options WHERE option_value LIKE '%$next3_enews_edition_unix%' ");
+	$next3_edition_cat_id = str_replace("taxonomy_", "", $next3_edition_cat); //THIS is the ID of the previous category, based on the unix
+	$next3_edition_cat = get_category($next3_edition_cat_id);
+	$next3_edition_cat_slug = $next3_edition_cat->slug;
+	$next3_edition_cat_name = $next3_edition_cat->name;
+
+	//Next Month - 2
+
+	$next2_enews_edition_unix = strtotime("+2 month", $enews_edition_unix);
+	$next2_edition_cat = $wpdb->get_var("SELECT option_name FROM wp_4_options WHERE option_value LIKE '%$next2_enews_edition_unix%' ");
+	$next2_edition_cat_id = str_replace("taxonomy_", "", $next2_edition_cat); //THIS is the ID of the previous category, based on the unix
+	$next2_edition_cat = get_category($next2_edition_cat_id);
+	$next2_edition_cat_slug = $next2_edition_cat->slug;
+	$next2_edition_cat_name = $next2_edition_cat->name;
+	
+	//Next Month - 1
+
+	$next1_enews_edition_unix = strtotime("+1 month", $enews_edition_unix);
+	$next1_edition_cat = $wpdb->get_var("SELECT option_name FROM wp_4_options WHERE option_value LIKE '%$next1_enews_edition_unix%' ");
+	$next1_edition_cat_id = str_replace("taxonomy_", "", $next1_edition_cat); //THIS is the ID of the previous category, based on the unix
+	$next1_edition_cat = get_category($next1_edition_cat_id);
+	$next1_edition_cat_slug = $next1_edition_cat->slug;
+	$next1_edition_cat_name = $next1_edition_cat->name;
+	
+	?>    
+    
+    
+
     <nav>
     <ul>
     	<li><a href="#">eNews Archives</a>
         <ul>
-<?php $args = array(
-	'orderby'            => 'slug',
-	'order'              => 'DESC',
-	'use_desc_for_title' => 0,
-	'exclude'            => '1,' . $cat_id . '',
-	'title_li'           => '',
-	'number'             => '10',
-	'current_category'   => 0,
-); 
-
-wp_list_categories( $args ); ?>
-		</ul>
-   		</li>
-    </ul>
-</nav>
+        <li><a href="<?php echo home_url(); ?>/news/enews/<?php print $previous3_edition_cat_slug; ?>"><?php print $previous3_edition_cat_name; ?></a></li>
+        <li><a href="<?php echo home_url(); ?>/news/enews/<?php print $previous2_edition_cat_slug; ?>"><?php print $previous2_edition_cat_name; ?></a></li>
+        	<li><a href="<?php echo home_url(); ?>/news/enews/<?php print $previous1_edition_cat_slug; ?>"><?php print $previous1_edition_cat_name; ?></a></li>
+            <li>&gt; <?php single_cat_title(); ?></li>
+            <li><a href="<?php echo home_url(); ?>/news/enews/<?php print $next1_edition_cat_slug; ?>"><?php print $next1_edition_cat_name; ?></a></li>
+        <li><a href="<?php echo home_url(); ?>/news/enews/<?php print $next2_edition_cat_slug; ?>"><?php print $next2_edition_cat_name; ?></a></li>
+        	<li><a href="<?php echo home_url(); ?>/news/enews/<?php print $next3_edition_cat_slug; ?>"><?php print $next3_edition_cat_name; ?></a></li>
+        </ul></li></ul></nav>
+        
+        
 
 <?php get_sidebar( 'page-nav-2' ); ?>
 </div>
 
-<?php if ( is_active_sidebar( 'page-content' ) ) : ?>
-		<div class="widgets"><?php dynamic_sidebar( 'page-content' ); ?></div>
+<?php if ( is_active_sidebar( 'enews-widgets' ) ) : ?>
+		<div class="widgets"><?php dynamic_sidebar( 'enews-widgets' ); ?></div>
 <?php endif; ?>
 
 

@@ -72,6 +72,18 @@ $cso_tshowcase_nav = array(
 	);
 	
 register_sidebar( $cso_tshowcase_nav );
+
+$cso_enews_widgets = array(
+	'name'			=> 'eNews Widgets',
+	'id'			=> 'enews-widgets',
+	'description'	=> 'Widget area for the eNews pages.',
+	'before_widget'	=> '<div class="widget-item">',
+	'after_widget'	=> '</div>',
+	'before_title'	=> '<h4 class="widgettitle">',
+	'after_title'	=> '</h4>',
+	);
+	
+register_sidebar( $cso_enews_widgets );
 	
 /* MENUS */
 
@@ -362,3 +374,141 @@ function save_taxonomy_custom_meta( $term_id ) {
 }  
 add_action( 'edited_category', 'save_taxonomy_custom_meta', 10, 2 );  
 add_action( 'create_category', 'save_taxonomy_custom_meta', 10, 2 );
+
+/* WIDGETS */
+
+// Subscribe to eNews widget
+//http://www.wpbeginner.com/wp-tutorials/how-to-create-a-custom-wordpress-widget/
+
+// Creating the widget 
+class cso_enews_widget extends WP_Widget {
+
+function __construct() {
+parent::__construct(
+// Base ID of your widget
+'cso_enews_widget', 
+
+// Widget name will appear in UI
+__('eNews Signup Button', 'cso_enews_widget_domain'), 
+
+// Widget description
+array( 'description' => __( 'Inserts a button that brings up a lightbox with the eNews sign up form.', 'cso_enews_widget_domain' ), ) 
+);
+}
+
+// Creating widget front-end
+// This is where the action happens
+public function widget( $args, $instance ) {
+$title = apply_filters( 'widget_title', $instance['title'] );
+// before and after widget arguments are defined by themes
+echo $args['before_widget'];
+if ( ! empty( $title ) )
+echo $args['before_title'] . $title . $args['after_title'];
+
+// This is where you run the code and display the output
+echo __( '<a class="lbp-inline-link-1 cboxElement" href="#"><button class="button-blue enews"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve"><path d="m41 135c-11-6-16-13-14-20c0-5 5-7 13-7c0 0 433 0 433 0c13 0 16 5 10 16c-2 5-6 8-12 11c-5 2-38 20-98 52c-61 33-92 50-93 51c-6 3-14 5-24 5c-10 0-17-2-24-5c-1-1-32-18-93-51c-60-32-93-50-98-52m435 51c7-3 10-1 10 5c0 0 0 189 0 189c0 5-2 11-8 16c-6 6-12 8-17 8c0 0-410 0-410 0c-5 0-11-2-17-8c-5-5-8-11-8-16c0 0 0-189 0-189c0-6 3-8 10-5c0 0 196 103 196 103c7 3 14 5 24 5c10 0 17-2 24-5c0 0 196-103 196-103"/></svg>Sign up for CSO eNews</button></a>
+<div style="display: none;">
+<div id="lbp-inline-href-1" style="padding:10px; background: #fff;">
+
+<!-- FORM CODE GOES HERE -->
+
+<!-- FORM: HEAD SECTION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="http://www.tfaforms.com/form-builder/4.1.0/css/wforms-layout.css" rel="stylesheet" type="text/css" />
+    <!--[if IE 8]>
+    <link href="http://www.tfaforms.com/form-builder/4.1.0/css/wforms-layout-ie8.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!--[if IE 7]>
+    <link href="http://www.tfaforms.com/form-builder/4.1.0/css/wforms-layout-ie7.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!--[if IE 6]>
+    <link href="http://www.tfaforms.com/form-builder/4.1.0/css/wforms-layout-ie6.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+
+    <link href="http://www.tfaforms.com/themes/get/17258" rel="stylesheet" type="text/css" />
+    <link href="http://www.tfaforms.com/form-builder/4.1.0/css/wforms-jsonly.css" rel="alternate stylesheet" title="This stylesheet activated by javascript" type="text/css" />
+    <script type="text/javascript" src="http://www.tfaforms.com/wForms/3.7/js/wforms.js"></script>
+    <script type="text/javascript">
+        wFORMS.behaviors.prefill.skip = false;
+    </script>
+        <script type="text/javascript" src="http://www.tfaforms.com/wForms/3.7/js/localization-en_US.js"></script>
+
+<!-- FORM: BODY SECTION -->
+<div class="wFormContainer" style="width: 270px;" >
+
+  <div class=""><div class="wForm" id="tfa_0-WRPR" dir="ltr">
+<div class="codesection" id="code-tfa_0"></div>
+<form method="post" action="http://www.tfaforms.com/responses/processor" class="hintsBelow labelsAbove" id="tfa_0">
+<div id="tfa_1-D" class="oneField    ">
+<label id="tfa_1-L" for="tfa_1" class="label preField reqMark">First Name </label><br><div class="inputWrapper"><input type="text" id="tfa_1" name="tfa_1" value="" style="width: 180px" placeholder="" class="required"></div>
+</div>
+<div id="tfa_2-D" class="oneField    ">
+<label id="tfa_2-L" for="tfa_2" class="label preField reqMark">Last Name </label><br><div class="inputWrapper"><input type="text" id="tfa_2" name="tfa_2" value="" style="width: 180px" placeholder="" class="required"></div>
+</div>
+<div id="tfa_3-D" class="oneField    ">
+<label id="tfa_3-L" for="tfa_3" class="label preField reqMark">Email</label><br><div class="inputWrapper"><input type="text" id="tfa_3" name="tfa_3" value="" style="width: 180px" placeholder="" class="validate-email required"></div>
+</div>
+<div id="tfa_4-D" class="oneField    ">
+<label id="tfa_4-L" for="tfa_4" class="label preField reqMark">Institution/Organization</label><br><div class="inputWrapper"><input type="text" id="tfa_4" name="tfa_4" value="" style="width: 180px" placeholder="" class="required"></div>
+</div>
+<div id="tfa_5-D" class="oneField    ">
+<label id="tfa_5-L" for="tfa_5" class="label preField reqMark">State/Province</label><br><div class="inputWrapper"><input type="text" id="tfa_5" name="tfa_5" value="" style="width: 110px" placeholder="" class="required"></div>
+</div>
+<div class="actions" id="tfa_0-A"><input type="submit" class="primaryAction" value="Submit"></div>
+<div style="clear:both"></div>
+<input type="hidden" value="352902" name="tfa_dbFormId" id="tfa_dbFormId"><input type="hidden" value="" name="tfa_dbResponseId" id="tfa_dbResponseId"><input type="hidden" value="416f50cbbe38595205d5b1bced7e8ad6" name="tfa_dbControl" id="tfa_dbControl"><input type="hidden" value="4" name="tfa_dbVersionId" id="tfa_dbVersionId"><input type="hidden" value="" name="tfa_switchedoff" id="tfa_switchedoff">
+</form>
+</div></div>
+
+  <p class="supportInfo" >
+        <a href="http://www.tfaforms.com/forms/help/352902" target="new" style="font-size: 0.7em;">
+      Need assistance with this form?    </a>
+
+      </p>
+
+</div>
+
+
+
+<!-- FORM CODE ENDS HERE -->
+
+</div>
+</div>', 'cso_enews_widget_domain' );
+echo $args['after_widget'];
+}
+
+
+
+		
+// Widget Backend 
+public function form( $instance ) {
+if ( isset( $instance[ 'title' ] ) ) {
+$title = $instance[ 'title' ];
+}
+else {
+$title = __( '', 'cso_enews_widget_domain' );
+}
+// Widget admin form
+?>
+<p>
+<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
+<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+</p>
+<?php 
+}
+	
+// Updating widget replacing old instances with new
+public function update( $new_instance, $old_instance ) {
+$instance = array();
+$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+return $instance;
+}
+} // Class wpb_widget ends here
+
+// Register and load the widget
+function cso_load_enews_widget() {
+	register_widget( 'cso_enews_widget' );
+}
+add_action( 'widgets_init', 'cso_load_enews_widget' );
+

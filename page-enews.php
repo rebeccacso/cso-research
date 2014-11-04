@@ -10,9 +10,8 @@ Template Name: eNews Page Template
 <div id="content">
  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-<?php $image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
 
-<div id="title-bar" style="background-image:url('<?php echo $image; ?>')">
+<div id="title-bar" style="background-image:url('http://csoresearch.thecampuscareercoach.com/wp-content/uploads/sites/4/2014/11/BDSC05357.jpg')">
 
 <div class="img-gradient"></div>
 
@@ -159,33 +158,60 @@ if ( $enews_query->have_posts() ) : while ( $enews_query->have_posts() ) : $enew
         </ul>
     </nav>
     <?php } ?>
-<nav>
+
+
+<?php
+// For Left Nav
+
+	//Previous Month - 3
+
+	$previous3_enews_edition_unix = strtotime("-3 month", $recent_enews_unix);
+	$previous3_edition_cat = $wpdb->get_var("SELECT option_name FROM wp_4_options WHERE option_value LIKE '%$previous3_enews_edition_unix%' ");
+	$previous3_edition_cat_id = str_replace("taxonomy_", "", $previous3_edition_cat); //THIS is the ID of the previous category, based on the unix
+	$previous3_edition_cat = get_category($previous3_edition_cat_id);
+	$previous3_edition_cat_slug = $previous3_edition_cat->slug;
+	$previous3_edition_cat_name = $previous3_edition_cat->name;
+
+	//Previous Month - 2
+
+	$previous2_enews_edition_unix = strtotime("-2 month", $recent_enews_unix);
+	$previous2_edition_cat = $wpdb->get_var("SELECT option_name FROM wp_4_options WHERE option_value LIKE '%$previous2_enews_edition_unix%' ");
+	$previous2_edition_cat_id = str_replace("taxonomy_", "", $previous2_edition_cat); //THIS is the ID of the previous category, based on the unix
+	$previous2_edition_cat = get_category($previous2_edition_cat_id);
+	$previous2_edition_cat_slug = $previous2_edition_cat->slug;
+	$previous2_edition_cat_name = $previous2_edition_cat->name;
+	
+	//Previous Month - 1
+
+	$previous1_enews_edition_unix = strtotime("-1 month", $recent_enews_unix);
+	$previous1_edition_cat = $wpdb->get_var("SELECT option_name FROM wp_4_options WHERE option_value LIKE '%$previous1_enews_edition_unix%' ");
+	$previous1_edition_cat_id = str_replace("taxonomy_", "", $previous1_edition_cat); //THIS is the ID of the previous category, based on the unix
+	$previous1_edition_cat = get_category($previous1_edition_cat_id);
+	$previous1_edition_cat_slug = $previous1_edition_cat->slug;
+	$previous1_edition_cat_name = $previous1_edition_cat->name;
+	
+	?>    
+    
+    
+
+    <nav>
     <ul>
     	<li><a href="#">eNews Archives</a>
         <ul>
-<?php $args = array(
-	'orderby'            => 'slug',
-	'order'              => 'DESC',
-	'use_desc_for_title' => 0,
-	'exclude'            => '1,' . $latest_enews_id . '',
-	'title_li'           => '',
-	'number'             => '5',
-	'current_category'   => 0,
-); 
+        <li><a href="<?php echo home_url(); ?>/news/enews/<?php print $previous3_edition_cat_slug; ?>"><?php print $previous3_edition_cat_name; ?></a></li>
+        <li><a href="<?php echo home_url(); ?>/news/enews/<?php print $previous2_edition_cat_slug; ?>"><?php print $previous2_edition_cat_name; ?></a></li>
+        	<li><a href="<?php echo home_url(); ?>/news/enews/<?php print $previous1_edition_cat_slug; ?>"><?php print $previous1_edition_cat_name; ?></a></li>
+            <li>&gt; <?php echo $recent_edition_cat_name; ?></li>
+        </ul></li></ul></nav>
 
-wp_list_categories( $args ); ?>
-		</ul>
-   		</li>
-    </ul>
-</nav>
 
 
 
 <?php get_sidebar( 'page-nav-2' ); ?>
 </div>
 
-<?php if ( is_active_sidebar( 'page-content' ) ) : ?>
-		<div class="widgets"><?php dynamic_sidebar( 'page-content' ); ?></div>
+<?php if ( is_active_sidebar( 'enews-widgets' ) ) : ?>
+		<div class="widgets"><?php dynamic_sidebar( 'enews-widgets' ); ?></div>
 <?php endif; ?>
 
 

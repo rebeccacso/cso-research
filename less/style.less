@@ -739,6 +739,7 @@ circle {
 		.grey-link;
 		font-size:.8em;
 		margin-bottom:1.5em;
+		clear:both;
 		
 		
 		p {
@@ -807,8 +808,8 @@ circle {
 	}
 	
 	#sidebar {
-		width:10em;
-		margin: -.3em 1.875em 0 @medium-margin;
+		width:12em;
+		margin: -.3em 2.25em 0 @medium-margin;
 		vertical-align:top;
 		color:@cso-blue;
 		float:left;
@@ -820,6 +821,7 @@ circle {
 		.widgets {
 			border-top: dotted .2em @cso-ltblue;
 			margin-top:.7em;
+			padding-top: .7em;
 			
 			h4.widgettitle {
 				.roboto;
@@ -1197,7 +1199,7 @@ circle {
 		}
 		
 		ul.menu { // to undo the font size increase used on default pages
-			font-size:.85em;
+			font-size:1em;
 		}
 		
 		nav.menu-client-services-container ul li ul li.current_page_item:before { //Remove > from current page in menu
@@ -1475,7 +1477,9 @@ circle {
 			}
 		}
 		
-	
+		@media @breakpoint-5 {
+			margin-left:0;
+		}
 	}
 	
 	#sidebar {
@@ -1490,6 +1494,19 @@ circle {
 	margin-top:2em;
 	.right {
 		float:right;
+	}
+	
+	@media @breakpoint-5 {
+		
+		button, button.right {
+			float:none;
+			clear:both;
+			width:10em;
+			margin-bottom:.5em;
+			display:block;
+			margin-left:auto;
+			margin-right:auto;
+		}
 	}
 }
 
@@ -1590,6 +1607,57 @@ iframe.client-map {
 	background-color:transparent;
 }
 
+button.enews {
+	width:100%;
+	font-size:1.3em;
+	text-align:left;
+	padding-bottom:.2em;
+	margin:1em 0;
+	
+	svg {
+		fill:@white;
+		width: 2em;
+		height: 2em;
+		float: left;
+		padding-right: 0.7em;
+		margin-top: 0.4em;
+		padding-left: .3em;
+		
+	}
+}
+
+// Lightbox plus Colorbox
+
+#cboxContent #cboxLoadedContent {
+	background-color:@cso-ltblue;
+}
+
+// Tag Cloud
+
+.tagcloud {
+	line-height:1em;
+	text-align:center;
+	.orange-link;
+	margin-bottom:2em;
+}
+
+// Twitter Widget
+
+ul.tweets {
+	list-style:none;
+	padding-left:0;
+	color:@black;
+	font-size:.8em;
+	
+	li {
+		margin-bottom:1em;
+		
+		em a {
+			.grey-link;
+		}
+	}
+}
+
 // Gallery Plugin Styles
 
 .mg_filter {
@@ -1681,7 +1749,7 @@ span.expand {
 
 
 //Team Plugin Styles
-.page, .single {  // to make it specific enough to override defaults 
+.page, .single, .archive {  // to make it specific enough to override defaults 
 	
 	&.page-id-6 .tshowcase {
 		margin-top:-2em;
@@ -1754,7 +1822,7 @@ span.expand {
 	}
 }
 
-// FA Forms
+// FormAssembly Forms
 
 .main { //to make css specific enough to override
 	
